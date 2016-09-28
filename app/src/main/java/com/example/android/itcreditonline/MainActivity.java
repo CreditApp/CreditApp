@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     //adapter for view pager
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments [] = {"Fragment 1","Fragment 2"};
+        private String fragments [] = {"News","Profile","Credits","Calculator","About", "Map"};
 
         CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
@@ -59,9 +60,18 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             switch (position){
+
                 case 0:
                     return new ProfileFragment();
                 case 1:
+                    return new ProfileFragment();
+                case 2:
+                    return new ProfileFragment();
+                case 3:
+                   return new ProfileFragment();
+                case 4:
+                    return new ProfileFragment();
+                case 5:
                     return new ProfileFragment();
                 default:
                     return null;
