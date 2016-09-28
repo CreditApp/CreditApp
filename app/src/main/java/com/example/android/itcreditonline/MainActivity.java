@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private  ViewPager viewPager;
     private ViewPagerAdapter adapter;
+    private int[] tabIcons = {
+        //add icons from drawable here
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
