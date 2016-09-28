@@ -12,87 +12,83 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private  ViewPager viewPager;
+    private ViewPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tab();
 
-        //View Pager
+
+
+    }
+    public void tab(){
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager.setAdapter(new CustomAdapter(getSupportFragmentManager(),getApplicationContext()));
-
-        //Tab layout
+        setupViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            tabLayout.getTabAt(i).setIcon(R.drawable.news_gray);
-        }
+        //setupTabIcons();
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-        });
+    }
+    private void setupTabIcons() {
+//        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+//        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+//        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+//        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+//        tabLayout.getTabAt(4).setIcon(tabIcons[4]);
 
     }
 
+    public void setupViewPager(ViewPager viewPager){
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new ProfileFragment(),"News");
+        adapter.addFrag(new ProfileFragment(), "Profile");
+        adapter.addFrag(new ProfileFragment(), "Credits");
+        adapter.addFrag(new ProfileFragment(), "Calculator");
+        adapter.addFrag(new ProfileFragment(), "About");
+        adapter.addFrag(new ProfileFragment(), "Map");
+        viewPager.setAdapter(adapter);
+    }
+
     //adapter for view pager
-    private class CustomAdapter extends FragmentPagerAdapter {
+    private class ViewPagerAdapter extends FragmentPagerAdapter {
 
-        private String fragments [] = {"News","Profile","Credits","Calculator","About", "Map"};
+        private final List<Fragment> mFragmentList =new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
+        ViewPagerAdapter(FragmentManager supportFragmentManager) {
             super(supportFragmentManager);
         }
 
         @Override
         public Fragment getItem(int position) {
-            switch (position){
-
-                case 0:
-                    return new ProfileFragment();
-                case 1:
-                    return new ProfileFragment();
-                case 2:
-                    return new ProfileFragment();
-                case 3:
-                   return new ProfileFragment();
-                case 4:
-                    return new ProfileFragment();
-                case 5:
-                    return new ProfileFragment();
-                default:
-                    return null;
-            }
+            return mFragmentList.get(position);
         }
+
 
         @Override
         public int getCount() {
-            return fragments.length;
+            return mFragmentList.size();
         }
 
-        //set page title according to selected tab(fragment)
+        public void addFrag(Fragment fragment,String title){
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
         @Override
-        public CharSequence getPageTitle(int position) {
-            return fragments[position];
+        public CharSequence getPageTitle(int position){
+            return mFragmentTitleList.get(position);
         }
     }
 }
+
 
 
 
