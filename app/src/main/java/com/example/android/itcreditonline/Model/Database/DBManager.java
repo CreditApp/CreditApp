@@ -41,16 +41,16 @@ public class DBManager extends SQLiteOpenHelper {
     private void loadUsers() {
         if (registerredUsers.isEmpty()) {
             //select all users from db
-            Cursor cursor = getWritableDatabase().rawQuery("SELECT username, password FROM users", null);
+            Cursor cursor = getWritableDatabase().rawQuery("SELECT USERS_USERNAME, USERS_PASSWORD FROM TABLE_USERS", null);
             while (cursor.moveToNext()) {
 
-                String username = cursor.getString(cursor.getColumnIndex("username"));
-                String name = cursor.getString(cursor.getColumnIndex("name"));
-                String surname = cursor.getString(cursor.getColumnIndex("surname"));
-                String password = cursor.getString(cursor.getColumnIndex("password"));
-                String email = cursor.getString(cursor.getColumnIndex("email"));
-                String phoneNumber = cursor.getString(cursor.getColumnIndex("phoneNumber"));
-                String id = cursor.getString(cursor.getColumnIndex("id"));
+                String username = cursor.getString(cursor.getColumnIndex("USERS_USERNAME"));
+                String name = cursor.getString(cursor.getColumnIndex("USERS_NAME"));
+                String surname = cursor.getString(cursor.getColumnIndex("USERS_SURNAME"));
+                String password = cursor.getString(cursor.getColumnIndex("USERS_PASSWORD"));
+                String email = cursor.getString(cursor.getColumnIndex("USERS_EMAIL"));
+                String phoneNumber = cursor.getString(cursor.getColumnIndex("USERS_PHONE_NUMBER"));
+                String id = cursor.getString(cursor.getColumnIndex("USERS_ID"));
                 //create instances of each user for each row
                 User user = new User(username, name, surname, password, email, phoneNumber, id);
                 //fill all users in the map
@@ -70,8 +70,8 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text, USERS_ID text, PRIMARY KEY(USERS_USERNAME)");
-        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text, FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
+        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text PRIMARY KEY,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text, USERS_ID text)");
+//        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text,PRIMARY KEY(CREDITS_ID), FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
         Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
 
     }
