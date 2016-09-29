@@ -93,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                DBManager.getInstance(RegisterActivity.this).registerUser(username.getText().toString(), name.getText().toString(),surName.getText().toString(), password.getText().toString(), email.getText().toString(), phone.getText().toString(), id.getText().toString());
+                DBManager.getInstance(RegisterActivity.this).registerUser(username.getText().toString(), name.getText().toString(),surName.getText().toString(), password.getText().toString(), email.getText().toString(), phone.getText().toString(),address.getText().toString(), id.getText().toString());
 
                 finish();
             }

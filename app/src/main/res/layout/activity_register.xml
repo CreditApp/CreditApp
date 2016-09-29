@@ -112,8 +112,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/register_reg"
-                android:textColor="#000"
-                android:textSize="30sp" />
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
