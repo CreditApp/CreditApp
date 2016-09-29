@@ -13,20 +13,23 @@ public class User {
     private String pass;
     private String email;
     private String phoneNumber;
+    private String address;
     private String id;
     private ArrayList<Credit> credits;
 
-    public User(String username, String name, String surname, String pass, String email, String phoneNumber, String id) {
+    public User(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id) {
         this.username = username;
         this.name = name;
         this.surname = surname;
         this.pass = pass;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.address = address;
         this.id = id;
         credits = new ArrayList<>();
     }
 
+    public  String getAddress(){return  address;}
     public String getUsername() {
         return username;
     }
