@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.example.android.itcreditonline.Model.ReadRss;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
+//TODO remove later
+import com.example.android.itcreditonline.Model.ReadRss;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -54,5 +56,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //TODO remove later
+        ReadRss readRss = new ReadRss(LoginActivity.this);
+        readRss.execute();
     }
 }
