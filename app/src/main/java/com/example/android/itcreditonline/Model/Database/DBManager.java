@@ -21,13 +21,6 @@ public class DBManager extends SQLiteOpenHelper {
     private static DBManager ourInstance;
     private static int version = 1;
     private Context context;
-
-
-    public DBManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
-
-
     private HashMap<String, User> registerredUsers;//username -> User
 
     public static DBManager getInstance(Context context) {
@@ -38,7 +31,7 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     private DBManager(Context context) {
-        super(context, "myDB", null, version);
+        super(context, "CreditAppDB", null, version);
         registerredUsers = new HashMap<>();
         this.context = context;
         loadUsers();
@@ -76,7 +69,8 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE users (username text,name text, surname text, password text, email text, phoneNumber text, id text PRIMARY KEY)");
+        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text, USERS_ID text, PRIMARY KEY(USERS_USERNAME)");
+        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text, FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
         Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
 
     }
@@ -98,7 +92,7 @@ public class DBManager extends SQLiteOpenHelper {
         values.put("email", email);
         values.put("phoneNumber", name);
         values.put("id", name);
-        getWritableDatabase().insert("users", null, values);
+        getWritableDatabase().insert("TABLE_USERS", null, values);
         registerredUsers.put(username, user);
 
     }
