@@ -50,9 +50,10 @@ public class DBManager extends SQLiteOpenHelper {
                 String password = cursor.getString(cursor.getColumnIndex("USERS_PASSWORD"));
                 String email = cursor.getString(cursor.getColumnIndex("USERS_EMAIL"));
                 String phoneNumber = cursor.getString(cursor.getColumnIndex("USERS_PHONE_NUMBER"));
+                String address = cursor.getString(cursor.getColumnIndex("USERS_ADDRESS"));
                 String id = cursor.getString(cursor.getColumnIndex("USERS_ID"));
                 //create instances of each user for each row
-                User user = new User(username, name, surname, password, email, phoneNumber, id);
+                User user = new User(username, name, surname, password, email, phoneNumber,address, id);
                 //fill all users in the map
                 registerredUsers.put(username, user);
             }
@@ -70,7 +71,7 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text PRIMARY KEY,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text, USERS_ID text)");
+        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text PRIMARY KEY,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text,USERS_ADDRESS text, USERS_ID text)");
 //        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text,PRIMARY KEY(CREDITS_ID), FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
         Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
 
@@ -82,17 +83,18 @@ public class DBManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void registerUser(String username, String name, String surname, String pass, String email, String phoneNumber, String id) {
-        User user = new User(username, name, surname, pass, email, phoneNumber, id);
+    public void registerUser(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id) {
+        User user = new User(username, name, surname, pass, email, phoneNumber,address, id);
         getWritableDatabase().beginTransaction();
         ContentValues values = new ContentValues();
-        values.put("username", username);
-        values.put("name", name);
-        values.put("surname", surname);
-        values.put("pass", pass);
-        values.put("email", email);
-        values.put("phoneNumber", name);
-        values.put("id", name);
+        values.put("USERS_USERNAME", username);
+        values.put("USERS_NAME", name);
+        values.put("USERS_NAME", surname);
+        values.put("USERS_PASSWORD", pass);
+        values.put("USERS_EMAIL", email);
+        values.put("USERS_PHONE_NUMBER", phoneNumber);
+        values.put("USERS_ADDRESS",address);
+        values.put("USERS_ID", id);
         getWritableDatabase().insert("TABLE_USERS", null, values);
         registerredUsers.put(username, user);
 
@@ -122,7 +124,7 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     public void deleteUser(String username) {
-        getWritableDatabase().delete("users", "username = ?", new String[]{username});
+        getWritableDatabase().delete("TABLE_USERS", "USERS_USERNAME = ?", new String[]{username});
     }
 }
 
