@@ -76,7 +76,7 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE users (username text, password text)");
+        db.execSQL("CREATE TABLE users (username text,name text, surname text, password text, email text, phoneNumber text, id text PRIMARY KEY)");
         Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
 
     }
