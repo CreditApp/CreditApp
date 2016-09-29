@@ -31,7 +31,7 @@ public class DBManager extends SQLiteOpenHelper {
     private HashMap<String, User> registerredUsers;//username -> User
 
     public static DBManager getInstance(Context context) {
-        if(ourInstance == null){
+        if (ourInstance == null) {
             ourInstance = new DBManager(context);
         }
         return ourInstance;
@@ -45,7 +45,7 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     private void loadUsers() {
-        if(registerredUsers.isEmpty()) {
+        if (registerredUsers.isEmpty()) {
             //select all users from db
             Cursor cursor = getWritableDatabase().rawQuery("SELECT username, password FROM users", null);
             while (cursor.moveToNext()) {
@@ -58,11 +58,11 @@ public class DBManager extends SQLiteOpenHelper {
                 String phoneNumber = cursor.getString(cursor.getColumnIndex("phoneNumber"));
                 String id = cursor.getString(cursor.getColumnIndex("id"));
                 //create instances of each user for each row
-                User user = new User(username,name,surname,password,email,phoneNumber,id);
+                User user = new User(username, name, surname, password, email, phoneNumber, id);
                 //fill all users in the map
                 registerredUsers.put(username, user);
             }
-            if(!cursor.isClosed())
+            if (!cursor.isClosed())
                 cursor.close();
             StringBuilder allUsers = new StringBuilder();
             for (User u : registerredUsers.values()) {
@@ -87,8 +87,8 @@ public class DBManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void registerUser(String username, String name, String surname, String pass, String email, String phoneNumber, String id){
-        User user = new User(username,name,surname,pass,email,phoneNumber,id);
+    public void registerUser(String username, String name, String surname, String pass, String email, String phoneNumber, String id) {
+        User user = new User(username, name, surname, pass, email, phoneNumber, id);
         getWritableDatabase().beginTransaction();
         ContentValues values = new ContentValues();
         values.put("username", username);
@@ -99,7 +99,7 @@ public class DBManager extends SQLiteOpenHelper {
         values.put("phoneNumber", name);
         values.put("id", name);
         getWritableDatabase().insert("users", null, values);
-        registerredUsers.put(username,user);
+        registerredUsers.put(username, user);
 
     }
 
@@ -111,16 +111,23 @@ public class DBManager extends SQLiteOpenHelper {
         }
     }
 
-    public static boolean validate(String phone) {
+    public static boolean validatePhone(String phone) {
         return android.util.Patterns.PHONE.matcher(phone).matches();
+    }
+
+    public boolean validateUser(String username, String password) {
+        if (existsUser(username)) {
+            return registerredUsers.get(username).getPass().equals(password);
+        }
+        return false;
     }
 
     public boolean existsUser(String username) {
         return registerredUsers.containsKey(username);
     }
 
-    public void deleteUser(String username){
-        getWritableDatabase().delete("users", "username = ?", new String[] {username});
+    public void deleteUser(String username) {
+        getWritableDatabase().delete("users", "username = ?", new String[]{username});
     }
 }
 
