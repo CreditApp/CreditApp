@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ITCreditOnline</string>
+    <string name="phone_number_reg">Phone number</string>
+    <string name="register_reg">Register</string>
+    <string name="address_reg">Address</string>
+    <string name="email_reg">Email</string>
+    <string name="password_reg">Password</string>
+    <string name="password_again_reg">Repeat Password</string>
+    <string name="name_reg">Name</string>
+    <string name="username_reg">Username</string>
+    <string name="surName_reg">Surname</string>
+    <string name="id_et">ID</string>
 </resources>

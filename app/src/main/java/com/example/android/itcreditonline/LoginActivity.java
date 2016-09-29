@@ -12,6 +12,7 @@ import com.example.android.itcreditonline.Model.Database.DBManager;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final int REQUEST_FOR_REGISTER = 1;
     private Button loginButton;
     private Button registerButton;
     private EditText usernameET;
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                         (usernameET.getText().toString(),passwordET.getText().toString())){
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("loggedUser", usernameET.getText().toString());
-                    startActivity(intent);
+                    startActivityForResult(intent,REQUEST_FOR_REGISTER);
                 }else{
                     errorLogin = new Dialog(LoginActivity.this);
                     errorLogin.setContentView(R.layout.dialog_wrong_user_or_pass);
