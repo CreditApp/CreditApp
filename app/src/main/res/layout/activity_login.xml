@@ -14,25 +14,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:gravity="center"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text=""
         android:hint="Username"
         android:gravity="center"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_above="@+id/editText2"
+        android:id="@+id/username_et"
+        android:layout_above="@+id/password_et"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -40,9 +28,9 @@
         android:layout_width="wrap_content"
         android:background="@color/colorPrimary"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_below="@+id/password_et"
+        android:layout_alignLeft="@+id/password_et"
+        android:layout_alignStart="@+id/password_et"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
         android:id="@+id/button_login" />
@@ -54,8 +42,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button_login"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
+        android:layout_alignRight="@+id/password_et"
+        android:layout_alignEnd="@+id/password_et"
         android:id="@+id/button_regiter" />
 
     <Button
@@ -64,7 +52,7 @@
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button3"
+        android:id="@+id/button_login_facebook"
         android:layout_below="@+id/button_login"
         android:layout_alignLeft="@+id/button_login"
         android:layout_alignStart="@+id/button_login"
@@ -79,5 +67,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:gravity="center"
+        android:ems="10"
+        android:id="@+id/password_et"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/username_et"
+        android:layout_alignStart="@+id/username_et" />
 
 </RelativeLayout>

@@ -21,14 +21,8 @@ public class DBManager extends SQLiteOpenHelper {
     private static DBManager ourInstance;
     private static int version = 1;
     private Context context;
-
-
-    public DBManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
-
-
     private HashMap<String, User> registerredUsers;//username -> User
+
 
     public static DBManager getInstance(Context context) {
         if (ourInstance == null) {
@@ -38,7 +32,7 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     private DBManager(Context context) {
-        super(context, "myDB", null, version);
+        super(context, "CreditAppDB", null, version);
         registerredUsers = new HashMap<>();
         this.context = context;
         loadUsers();
