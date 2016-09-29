@@ -27,7 +27,31 @@ public class User {
         credits = new ArrayList<>();
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getSurname() {
+        return surname;
+    }
 
+    public String getPass() {
+        return pass;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getId() {
+        return id;
+    }
 }
