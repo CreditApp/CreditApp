@@ -35,6 +35,19 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(usernameET.getText().toString().trim().isEmpty()){
+                    usernameET.setError("Please enter your username");
+                    usernameET.requestFocus();
+                    return;
+                }
+                if(passwordET.getText().toString().trim().isEmpty()){
+                    passwordET.setError("Please enter your password");
+                    passwordET.requestFocus();
+                    return;
+                }
+
+
+
                 //if user exists
                 if(DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(),passwordET.getText().toString())){
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);

@@ -6,11 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Aydin on 29.9.2016 г..
@@ -54,7 +57,16 @@ public class DBManager extends SQLiteOpenHelper {
 
                 User user = new User(username, name, surname, password, email, phoneNumber,address, id);
                 registerredUsers.put(username, user);
+                if(!cursor.isClosed())
+                    cursor.close();
+                //Log for register users
+                List<User> users = new ArrayList<>();
+                for (User u : registerredUsers.values()) {
+                        users.add(u);
+                }
+                Log.e("Register users", users.toString());
             }
+
 
         }
     }
