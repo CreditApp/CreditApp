@@ -6,10 +6,14 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -55,6 +59,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+        progressDialog.dismiss();
     }
 
     @Override
@@ -65,7 +70,38 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
 
     private void ProcessXml(Document data) {
         if(data != null){
-            Log.d("rss", data.getDocumentElement().getNodeName());
+            ArrayList<FeedItem> feedsItems = new ArrayList<>();
+
+            //get channel element
+            Element root = data.getDocumentElement();
+            Node channel = root.getChildNodes().item(1);
+
+            //get item elements
+            NodeList items = channel.getChildNodes();
+            for (int i = 0; i < items.getLength(); i++) {
+                Node currentChild = items.item(i);
+                if(currentChild.getNodeName().equalsIgnoreCase("item")){
+                    FeedItem item = new FeedItem();
+                    NodeList itemChildren = currentChild.getChildNodes();
+                    for (int j = 0; j < itemChildren.getLength(); j++) {
+                        Node current = itemChildren.item(j);
+                        if(current.getNodeName().equalsIgnoreCase("title")){
+                            item.setTitle(current.getTextContent());
+                        }else if(current.getNodeName().equalsIgnoreCase("description")){
+                            item.setDescription(current.getTextContent());
+                        }else if(current.getNodeName().equalsIgnoreCase("pubDate")){
+                            item.setPubDate(current.getTextContent());
+                        }else if(current.getNodeName().equalsIgnoreCase("link")){
+                            item.setLink(current.getTextContent());
+                        }
+                    }
+                    feedsItems.add(item);
+                    Log.d("itemTitle", item.getTitle());
+                    Log.d("itemDescription", item.getDescription());
+                    Log.d("itemLink", item.getLink());
+                    Log.d("itemPubDate", item.getPubDate());
+                }
+            }
         }
     }
 }
