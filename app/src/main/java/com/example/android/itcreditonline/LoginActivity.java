@@ -54,10 +54,11 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("loggedUser", usernameET.getText().toString());
                     startActivityForResult(intent,REQUEST_FOR_REGISTER);
                 }else{
-                    errorLogin = new Dialog(LoginActivity.this);
-                    errorLogin.setContentView(R.layout.dialog_wrong_user_or_pass);
-                    errorLogin.setTitle("Error");
-                    errorLogin.show();
+                    usernameET.setText("");
+                    passwordET.setText("");
+                    usernameET.requestFocus();
+                    Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         });
