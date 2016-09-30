@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.itcreditonline.LoginActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="Username"
-        android:gravity="center"
-        android:ems="10"
-        android:id="@+id/username_et"
-        android:layout_above="@+id/password_et"
-        android:layout_centerHorizontal="true" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password_et"
-        android:layout_alignLeft="@+id/password_et"
-        android:layout_alignStart="@+id/password_et"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:id="@+id/button_login" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:text="Register"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button_login"
-        android:layout_alignRight="@+id/password_et"
-        android:layout_alignEnd="@+id/password_et"
-        android:id="@+id/button_regiter" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:text="Facebook Login"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_login_facebook"
-        android:layout_below="@+id/button_login"
-        android:layout_alignLeft="@+id/button_login"
-        android:layout_alignStart="@+id/button_login"
-        android:layout_marginTop="11dp"
-        android:layout_alignRight="@+id/button_regiter"
-        android:layout_alignEnd="@+id/button_regiter" />
+            <EditText
+                android:id="@+id/username_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Username"
+                android:layout_marginTop="50dp"
+                android:inputType="textPersonName"
+                android:text="" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView" />
+            <EditText
+                android:id="@+id/password_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Password"
+                android:inputType="textPassword" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:gravity="center"
-        android:ems="10"
-        android:id="@+id/password_et"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/username_et"
-        android:layout_alignStart="@+id/username_et" />
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorPrimary"
+                android:text="Login"
+                android:textColor="@color/white" />
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/button_regiter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:text="Register"
+                android:textColor="@color/white" />
+
+
+            <Button
+                android:id="@+id/button_login_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:text="Facebook Login"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
