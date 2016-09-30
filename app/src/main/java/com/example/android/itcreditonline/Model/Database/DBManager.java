@@ -57,8 +57,7 @@ public class DBManager extends SQLiteOpenHelper {
 
                 User user = new User(username, name, surname, password, email, phoneNumber,address, id);
                 registerredUsers.put(username, user);
-                if(!cursor.isClosed())
-                    cursor.close();
+            
                 //Log for register users
                 List<User> users = new ArrayList<>();
                 for (User u : registerredUsers.values()) {
@@ -76,7 +75,7 @@ public class DBManager extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text,USERS_ADDRESS text, USERS_ID text)");
 //        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text,PRIMARY KEY(CREDITS_ID), FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
-        Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
+        
 
     }
 
