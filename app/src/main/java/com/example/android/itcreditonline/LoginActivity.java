@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         loginButton = (Button) findViewById(R.id.button_login);
         registerButton = (Button) findViewById(R.id.button_regiter);
         usernameET = (EditText) findViewById(R.id.username_et);
@@ -35,8 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //if user exists
-                if(DBManager.getInstance(LoginActivity.this).validateUser
-                        (usernameET.getText().toString(),passwordET.getText().toString())){
+                if(DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(),passwordET.getText().toString())){
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("loggedUser", usernameET.getText().toString());
                     startActivityForResult(intent,REQUEST_FOR_REGISTER);
@@ -58,8 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        //TODO remove later
-        ReadRss readRss = new ReadRss(LoginActivity.this);
-        readRss.execute();
+
     }
 }
