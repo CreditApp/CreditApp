@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Aydin on 29.9.2016 г..
@@ -41,37 +43,38 @@ public class DBManager extends SQLiteOpenHelper {
     private void loadUsers() {
         if (registerredUsers.isEmpty()) {
             //select all users from db
-            Cursor cursor = getWritableDatabase().rawQuery("SELECT USERS_USERNAME, USERS_PASSWORD FROM TABLE_USERS", null);
+            Cursor cursor = getWritableDatabase().rawQuery("SELECT * FROM TABLE_USERS", null);
             while (cursor.moveToNext()) {
 
-                String username = cursor.getString(cursor.getColumnIndex("USERS_USERNAME"));
-                String name = cursor.getString(cursor.getColumnIndex("USERS_NAME"));
-                String surname = cursor.getString(cursor.getColumnIndex("USERS_SURNAME"));
-                String password = cursor.getString(cursor.getColumnIndex("USERS_PASSWORD"));
-                String email = cursor.getString(cursor.getColumnIndex("USERS_EMAIL"));
-                String phoneNumber = cursor.getString(cursor.getColumnIndex("USERS_PHONE_NUMBER"));
-                String address = cursor.getString(cursor.getColumnIndex("USERS_ADDRESS"));
-                String id = cursor.getString(cursor.getColumnIndex("USERS_ID"));
-                //create instances of each user for each row
+                String username = cursor.getString(0);
+                String name = cursor.getString(1);
+                String surname = cursor.getString(2);
+                String password = cursor.getString(3);
+                String email = cursor.getString(4);
+                String phoneNumber = cursor.getString(5);
+                String address = cursor.getString(6);
+                String id = cursor.getString(7);
+
                 User user = new User(username, name, surname, password, email, phoneNumber,address, id);
-                //fill all users in the map
                 registerredUsers.put(username, user);
+                if(!cursor.isClosed())
+                    cursor.close();
+                //Log for register users
+                List<User> users = new ArrayList<>();
+                for (User u : registerredUsers.values()) {
+                        users.add(u);
+                }
+                Log.e("Register users", users.toString());
             }
-            if (!cursor.isClosed())
-                cursor.close();
-            StringBuilder allUsers = new StringBuilder();
-            for (User u : registerredUsers.values()) {
-                allUsers.append(u.getUsername()).append(" ").append(u.getPass()).append("\n");
-            }
-            Log.e("maikaTi", allUsers.toString());
-            Toast.makeText(context, "Users loaded: \n" + allUsers.toString(), Toast.LENGTH_SHORT).show();
+
+
         }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text PRIMARY KEY,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text,USERS_ADDRESS text, USERS_ID text)");
+        db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text,USERS_ADDRESS text, USERS_ID text)");
 //        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text,PRIMARY KEY(CREDITS_ID), FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
         Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
 
@@ -84,19 +87,17 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     public void registerUser(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id) {
-        User user = new User(username, name, surname, pass, email, phoneNumber,address, id);
-        getWritableDatabase().beginTransaction();
         ContentValues values = new ContentValues();
         values.put("USERS_USERNAME", username);
         values.put("USERS_NAME", name);
-        values.put("USERS_NAME", surname);
+        values.put("USERS_SURNAME", surname);
         values.put("USERS_PASSWORD", pass);
         values.put("USERS_EMAIL", email);
         values.put("USERS_PHONE_NUMBER", phoneNumber);
         values.put("USERS_ADDRESS",address);
         values.put("USERS_ID", id);
         getWritableDatabase().insert("TABLE_USERS", null, values);
-        registerredUsers.put(username, user);
+        registerredUsers.put(username, new User(username, name, surname, pass, email, phoneNumber,address, id));
 
     }
 

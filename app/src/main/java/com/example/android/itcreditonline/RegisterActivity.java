@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (username.getText().toString().length() > 10 || username.getText().toString().length() < 6) {
+                if (username.getText().toString().trim().length() > 10 || username.getText().toString().trim().length() < 6) {
                     username.setError("Username must be less than 10 and more than 6 symbols");
                     username.requestFocus();
                     return;
@@ -81,9 +81,15 @@ public class RegisterActivity extends AppCompatActivity {
                     email.requestFocus();
                     return;
                 }
-                if (address.getText().toString().isEmpty()) {
+                if (address.getText().toString().trim().isEmpty()) {
                     address.setError("Please enter your address!");
                     address.requestFocus();
+                    return;
+                }
+                
+                if(id.getText().toString().trim().isEmpty()){
+                    id.setError("Please enter your id");
+                    id.requestFocus();
                     return;
                 }
 

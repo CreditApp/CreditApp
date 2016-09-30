@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
 //TODO remove later
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         loginButton = (Button) findViewById(R.id.button_login);
         registerButton = (Button) findViewById(R.id.button_regiter);
         usernameET = (EditText) findViewById(R.id.username_et);
@@ -34,17 +36,30 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(usernameET.getText().toString().trim().isEmpty()){
+                    usernameET.setError("Please enter your username");
+                    usernameET.requestFocus();
+                    return;
+                }
+                if(passwordET.getText().toString().trim().isEmpty()){
+                    passwordET.setError("Please enter your password");
+                    passwordET.requestFocus();
+                    return;
+                }
+
+
+
                 //if user exists
-                if(DBManager.getInstance(LoginActivity.this).validateUser
-                        (usernameET.getText().toString(),passwordET.getText().toString())){
+                if(DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(),passwordET.getText().toString())){
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("loggedUser", usernameET.getText().toString());
                     startActivityForResult(intent,REQUEST_FOR_REGISTER);
                 }else{
-                    errorLogin = new Dialog(LoginActivity.this);
-                    errorLogin.setContentView(R.layout.dialog_wrong_user_or_pass);
-                    errorLogin.setTitle("Error");
-                    errorLogin.show();
+                    usernameET.setText("");
+                    passwordET.setText("");
+                    usernameET.requestFocus();
+                    Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         });
@@ -53,13 +68,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                usernameET.setError(null);
                 startActivity(intent);
             }
         });
 
 
-        //TODO remove later
-        ReadRss readRss = new ReadRss(LoginActivity.this);
-        readRss.execute();
+
     }
 }
