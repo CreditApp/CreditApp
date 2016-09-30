@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
 //TODO remove later
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                usernameET.setError(null);
                 startActivity(intent);
             }
         });
