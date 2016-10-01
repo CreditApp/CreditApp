@@ -18,6 +18,7 @@ import android.widget.TextView;
  */
 public class CalculatorFragment extends Fragment {
     Activity activity;
+    private double total;
 
     public CalculatorFragment() {
         // Required empty public constructor
@@ -29,9 +30,6 @@ public class CalculatorFragment extends Fragment {
         this.activity = (Activity) context;
     }
 
-    interface Communicator{
-        public void notifyFragmentAction();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,15 +38,16 @@ public class CalculatorFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_calculator, container, false);
         final TextView sumTV = (TextView) root.findViewById(R.id.sum_text_view);
         final TextView timeTV = (TextView) root.findViewById(R.id.month_text_view);
-        TextView totalSumRet = (TextView) root.findViewById(R.id.total_sum);
+        final TextView totalSumRet = (TextView) root.findViewById(R.id.total_sum);
         SeekBar seekBarSum = (SeekBar) root.findViewById(R.id.seekBarSum);
-        seekBarSum.incrementProgressBy(50);
         SeekBar seekBarMonth = (SeekBar) root.findViewById(R.id.seekBarMonth);
         Button apply = (Button) root.findViewById(R.id.apply_credit_button);
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 sumTV.setText(progress+100+"" + " lv.");
+                totalSumRet.setText(progress+100+(1+progress*0.01) + "");
+
             }
 
             @Override
@@ -66,6 +65,8 @@ public class CalculatorFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 timeTV.setText(progress+1 + "" + " month");
+
+
             }
 
             @Override
