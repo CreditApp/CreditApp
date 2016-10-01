@@ -74,9 +74,8 @@ public class DBManager extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE TABLE_USERS (USERS_USERNAME text,USERS_NAME text, USERS_SURNAME text, USERS_PASSWORD text, USERS_EMAIL text, USERS_PHONE_NUMBER text,USERS_ADDRESS text, USERS_ID text)");
 //        db.execSQL("CREATE TABLE TABLE_CREDITS (CREDITS_ID int , CREDITS_OWNER text, CREDITS_DATE text, CREDITS_DURATION text,PRIMARY KEY(CREDITS_ID), FOREIGN KEY(CREDITS_OWNER) REFERENCES TABLE_USERS(USERS_USERNAME)");
-        Toast.makeText(context, "DB created", Toast.LENGTH_SHORT).show();
 
-    }
+}
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
