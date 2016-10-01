@@ -47,8 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-
-
                 //if user exists
                 if(DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(),passwordET.getText().toString())){
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);

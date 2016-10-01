@@ -8,10 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.android.itcreditonline.Model.ReadRss;
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setupViewPager(ViewPager viewPager){
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ProfileFragment(),"News");
+        adapter.addFrag(new NewsFragment(),"News");
         adapter.addFrag(new ProfileFragment(), "Profile");
         adapter.addFrag(new ProfileFragment(), "Credits");
         adapter.addFrag(new ProfileFragment(), "Calculator");

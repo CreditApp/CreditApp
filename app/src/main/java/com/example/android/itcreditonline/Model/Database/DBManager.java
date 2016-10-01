@@ -57,9 +57,7 @@ public class DBManager extends SQLiteOpenHelper {
 
                 User user = new User(username, name, surname, password, email, phoneNumber,address, id);
                 registerredUsers.put(username, user);
-                if(!cursor.isClosed())
-                    cursor.close();
-                //Log for register users
+
                 List<User> users = new ArrayList<>();
                 for (User u : registerredUsers.values()) {
                         users.add(u);

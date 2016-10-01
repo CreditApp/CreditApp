@@ -23,15 +23,20 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class ReadRss extends AsyncTask<Void,Void,Void> {
-    Context context;
-    String address = "https://www.creditcards.com/credit-card-news/rss/rss-view.php?id=25";
-    ProgressDialog progressDialog;
-    URL url;
+    ArrayList<FeedItem> feedsItems;
+    private Context context;
+    private String address = "https://www.creditcards.com/credit-card-news/rss/rss-view.php?id=25";
+    private ProgressDialog progressDialog;
+    private URL url;
 
     public ReadRss(Context context) {
         this.context = context;
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Loading...");
+    }
+
+    public ArrayList<FeedItem> getFeedsItems() {
+        return feedsItems;
     }
 
     public Document getData(){
@@ -70,7 +75,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
 
     private void ProcessXml(Document data) {
         if(data != null){
-            ArrayList<FeedItem> feedsItems = new ArrayList<>();
+           feedsItems = new ArrayList<>();
 
             //get channel element
             Element root = data.getDocumentElement();
@@ -91,6 +96,8 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
                             item.setDescription(current.getTextContent());
                         }else if(current.getNodeName().equalsIgnoreCase("pubDate")){
                             item.setPubDate(current.getTextContent());
+                        }else if(current.getNodeName().equalsIgnoreCase("link")){
+                            item.setLink(current.getTextContent());
                         }else if(current.getNodeName().equalsIgnoreCase("link")){
                             item.setLink(current.getTextContent());
                         }
