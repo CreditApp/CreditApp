@@ -3,7 +3,11 @@ package com.example.android.itcreditonline.Model;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
+import com.example.android.itcreditonline.NewsAdapter;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -28,8 +32,10 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     private String address = "https://www.creditcards.com/credit-card-news/rss/rss-view.php?id=25";
     private ProgressDialog progressDialog;
     private URL url;
+    RecyclerView recyclerView;
 
-    public ReadRss(Context context) {
+    public ReadRss(Context context, RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
         this.context = context;
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Loading...");
@@ -65,6 +71,9 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         progressDialog.dismiss();
+        NewsAdapter adapter = new NewsAdapter(feedsItems,context);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

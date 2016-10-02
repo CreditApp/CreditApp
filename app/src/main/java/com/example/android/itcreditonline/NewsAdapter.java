@@ -1,7 +1,9 @@
 package com.example.android.itcreditonline;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,15 +17,15 @@ import java.util.ArrayList;
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
     private ArrayList<FeedItem> feedItems;
-    Activity activity;
+    Context activity;
 
     @Override
     public NewsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View row = activity.getLayoutInflater().inflate(R.layout.adapter_news,parent,false);
+        View row = LayoutInflater.from(activity).inflate(R.layout.adapter_news,parent,false);
         return new MyViewHolder(row);
     }
 
-    public NewsAdapter(ArrayList<FeedItem> feedItems, Activity activity) {
+    public NewsAdapter(ArrayList<FeedItem> feedItems, Context activity) {
         this.feedItems = feedItems;
         this.activity = activity;
     }
