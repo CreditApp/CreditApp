@@ -6,4 +6,5 @@
     <color name="tabSelectedIconColor">#c52626</color>
     <color name="tabUnselectedIconColor">#8c8c8c</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>
