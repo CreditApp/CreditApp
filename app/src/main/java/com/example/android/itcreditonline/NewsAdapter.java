@@ -2,6 +2,8 @@ package com.example.android.itcreditonline;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,10 +34,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(NewsAdapter.MyViewHolder holder, int position) {
-        FeedItem f = feedItems.get(position);
+        final FeedItem f = feedItems.get(position);
         holder.title.setText(f.getTitle());
         holder.pubDate.setText(f.getPubDate());
         holder.description.setText(f.getDescription());
+        holder.cardView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(activity,NewsActivity.class);
+                intent.putExtra("link", f.getLink());
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,12 +57,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
         TextView title;
         TextView pubDate;
         TextView description;
+        CardView cardView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.titleTV);
             pubDate = (TextView) itemView.findViewById(R.id.pubDateTV);
             description = (TextView) itemView.findViewById(R.id.descriptionTV);
+            cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
 }
