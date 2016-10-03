@@ -11,4 +11,7 @@
     <string name="surName_reg">Surname</string>
     <string name="id_et">ID</string>
     <string name="address">Address: Sofia, Infinity tower, floor 14</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
