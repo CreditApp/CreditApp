@@ -10,9 +10,16 @@
     <string name="username_reg">Username</string>
     <string name="surName_reg">Surname</string>
     <string name="id_et">ID</string>
+<<<<<<< HEAD
     <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Nulla vehicula quis enim sit amet dignissim. Phasellus lobortis at dolor sit amet interdum.
         Sed in magna eros. Etiam sed elit eget mauris tristique accumsan. Sed suscipit nibh ante,
         id tincidunt purus gravida id. Cras ac vulputate eros. Nullam scelerisque augue id porttitor bibendum.
         Integer aliquam ornare dui..</string>
+=======
+    <string name="address">Address: Sofia, Infinity tower, floor 14</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> 1a4c2148688270cd3380ab541fbd2d5c165e4668
 </resources>
