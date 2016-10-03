@@ -29,7 +29,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class ReadRss extends AsyncTask<Void,Void,Void> {
     ArrayList<FeedItem> feedsItems;
     private Context context;
-    private String address = "https://www.creditcards.com/credit-card-news/rss/rss-view.php?id=25";
+    private String address = "http://www.ft.com/rss/companies/banks";
     private ProgressDialog progressDialog;
     private URL url;
     RecyclerView recyclerView;
