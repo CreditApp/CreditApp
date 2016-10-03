@@ -1,6 +1,7 @@
 package com.example.android.itcreditonline.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Aydin on 29.9.2016 г..
@@ -17,7 +18,7 @@ public class User {
     private String id;
     private ArrayList<Credit> credits;
 
-    public User(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id) {
+    public User(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id,ArrayList<Credit> credits) {
         this.username = username;
         this.name = name;
         this.surname = surname;
@@ -26,8 +27,10 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.id = id;
-        credits = new ArrayList<>();
+        this.credits = credits;
+
     }
+
 
     public  String getAddress(){return  address;}
     public String getUsername() {
@@ -58,6 +61,14 @@ public class User {
         return id;
     }
 
+    public void addCredit(Credit credit){
+        credits.add(credit);
+    }
+
+    public ArrayList<Credit> getCredits() {
+        return credits;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -69,8 +80,7 @@ public class User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", id='" + id + '\'' +
+                ", credits=" + credits +
                 '}';
     }
-
-    
 }
