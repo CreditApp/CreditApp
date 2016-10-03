@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new ProfileFragment(), "Profile");
         adapter.addFrag(new ProfileFragment(), "Credits");
         adapter.addFrag(new CalculatorFragment(), "Calculator");
-        adapter.addFrag(new ProfileFragment(), "About");
+        adapter.addFrag(new AboutFragment(), "About");
         adapter.addFrag(new ProfileFragment(), "Map");
         viewPager.setAdapter(adapter);
     }
