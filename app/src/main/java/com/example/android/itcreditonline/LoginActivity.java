@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(),passwordET.getText().toString())){
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("loggedUser", usernameET.getText().toString());
-                    startActivityForResult(intent,REQUEST_FOR_REGISTER);
+                    startActivity(intent);
                 }else{
                     usernameET.setText("");
                     passwordET.setText("");

@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.android.itcreditonline.Model.Database.DBManager;
+import com.example.android.itcreditonline.Model.User;
 
 
 /**
@@ -42,10 +46,11 @@ public class CalculatorFragment extends Fragment {
         SeekBar seekBarSum = (SeekBar) root.findViewById(R.id.seekBarSum);
         SeekBar seekBarMonth = (SeekBar) root.findViewById(R.id.seekBarMonth);
         Button apply = (Button) root.findViewById(R.id.apply_credit_button);
+
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                sumTV.setText(progress+100+"" + " lv.");
+                sumTV.setText(progress+100+"");
                 totalSumRet.setText(progress+100+(1+progress*0.01) + "");
 
             }
@@ -64,7 +69,7 @@ public class CalculatorFragment extends Fragment {
         seekBarMonth.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                timeTV.setText(progress+1 + "" + " month");
+                timeTV.setText(progress+1 + "" );
 
 
             }
@@ -77,6 +82,14 @@ public class CalculatorFragment extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = activity.getIntent().getStringExtra("loggedUser");
+                DBManager.getInstance(activity).addCredit(Integer.parseInt(timeTV.getText().toString()),Integer.parseInt(sumTV.getText().toString()),username);
+                Toast.makeText(activity, "Credit is added!", Toast.LENGTH_SHORT).show();
             }
         });
 
