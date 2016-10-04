@@ -10,7 +10,13 @@
     <string name="username_reg">Username</string>
     <string name="surName_reg">Surname</string>
     <string name="id_et">ID</string>
-<<<<<<< HEAD
+    <string name="username_info">Username:</string>
+    <string name="name_info">Name:</string>
+    <string name="address_info">Address:</string>
+    <string name="email_info">Email:</string>
+    <string name="phone_info">Phone:</string>
+    <string name="account_information">Account information</string>
+
     <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Nulla vehicula quis enim sit amet dignissim. Phasellus lobortis at dolor sit amet interdum.
         Sed in magna eros. Etiam sed elit eget mauris tristique accumsan. Sed suscipit nibh ante,

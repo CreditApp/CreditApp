@@ -5,6 +5,7 @@
     android:orientation="vertical"
     tools:context="com.example.android.itcreditonline.CalculatorFragment">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -26,7 +27,7 @@
             android:layout_weight="0.5">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="bottom|center"
@@ -61,7 +62,7 @@
             android:layout_weight="0.5">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="bottom|center"
@@ -100,23 +101,23 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Total sum for return:"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="Total sum for return:" />
+
         <TextView
+            android:id="@+id/total_sum"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="0 lv."
             android:gravity="center"
-            android:id="@+id/total_sum"/>
+            android:text="0 lv." />
     </LinearLayout>
 
     <Button
         android:id="@+id/apply_credit_button"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_weight="0.1"
         android:paddingBottom="10dp"
         android:text="Apply" />
 
