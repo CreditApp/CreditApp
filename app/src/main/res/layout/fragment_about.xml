@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/question1"
         android:textSize="20sp"
+        android:paddingBottom="15dp"
         android:textColor="@color/black"
         android:text="@string/loremIpsum" />
 
@@ -42,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/question2"
+        android:paddingBottom="15dp"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:text="@string/loremIpsum" />
@@ -62,6 +64,7 @@
         android:id="@+id/question3"
         android:textSize="20sp"
         android:textColor="@color/black"
+        android:paddingBottom="15dp"
         android:text="@string/loremIpsum" />
 
     <TextView
@@ -77,6 +80,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/question4"
         android:textSize="20sp"
+        android:paddingBottom="15dp"
         android:textColor="@color/black"
         android:text="@string/loremIpsum" />
 
@@ -93,16 +97,47 @@
         android:layout_height="wrap_content"
         android:id="@+id/question5"
         android:textSize="20sp"
+        android:paddingBottom="15dp"
         android:textColor="@color/black"
         android:text="@string/loremIpsum" />
 
-
-    <ImageButton
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/sym_action_call"
-        android:id="@+id/imageButton"
-        android:layout_marginTop="33dp" />
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:srcCompat="@drawable/phone"
+            android:padding="15dp"
+            android:id="@+id/callIcon" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:background="@null"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            app:srcCompat="@drawable/message"
+            android:id="@+id/messageIcon" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="15dp"
+            app:srcCompat="@drawable/web"
+            android:id="@+id/facebookIcon" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:srcCompat="@drawable/email"
+            android:id="@+id/mailIcon" />
+
+    </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
