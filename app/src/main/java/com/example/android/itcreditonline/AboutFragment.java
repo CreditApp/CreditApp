@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import java.net.URI;
+
 
 public class AboutFragment extends Fragment {
 
@@ -52,8 +54,8 @@ public class AboutFragment extends Fragment {
         mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                startActivityForResult(sendIntent,1);
+                Intent sendIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","itcredits@gmail.com",null));
+                startActivity(sendIntent);
             }
         });
 
