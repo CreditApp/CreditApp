@@ -22,6 +22,7 @@ import com.example.android.itcreditonline.Model.User;
  */
 public class CalculatorFragment extends Fragment {
     Activity activity;
+    private double total;
 
     public CalculatorFragment() {
         // Required empty public constructor
@@ -51,7 +52,8 @@ public class CalculatorFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 sumTV.setText(progress+100+"");
-                totalSumRet.setText(progress+100+(1+progress*0.01) + "");
+                total = progress+100;
+                //totalSumRet.setText(total+ "");
 
             }
 
@@ -70,8 +72,8 @@ public class CalculatorFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 timeTV.setText(progress+1 + "" );
-
-
+                total += progress*0.01;
+                totalSumRet.setText(total+ "");
             }
 
             @Override

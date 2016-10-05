@@ -50,7 +50,6 @@ public class AboutFragment extends Fragment {
             }
         });
 
-        //TODO fix
         mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

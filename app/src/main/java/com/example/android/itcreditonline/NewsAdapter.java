@@ -3,6 +3,7 @@ package com.example.android.itcreditonline;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -41,8 +42,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
         holder.cardView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(activity,NewsActivity.class);
-                intent.putExtra("link", f.getLink());
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(f.getLink()));
                 activity.startActivity(intent);
             }
         });
