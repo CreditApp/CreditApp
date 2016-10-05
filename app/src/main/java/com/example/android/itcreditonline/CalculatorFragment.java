@@ -22,7 +22,6 @@ import com.example.android.itcreditonline.Model.User;
  */
 public class CalculatorFragment extends Fragment {
     Activity activity;
-    private double total;
 
     public CalculatorFragment() {
         // Required empty public constructor
@@ -47,6 +46,7 @@ public class CalculatorFragment extends Fragment {
         SeekBar seekBarMonth = (SeekBar) root.findViewById(R.id.seekBarMonth);
         Button apply = (Button) root.findViewById(R.id.apply_credit_button);
 
+        //TODO fix forumila
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -90,6 +90,7 @@ public class CalculatorFragment extends Fragment {
                 String username = activity.getIntent().getStringExtra("loggedUser");
                 DBManager.getInstance(activity).addCredit(Integer.parseInt(timeTV.getText().toString()),Integer.parseInt(sumTV.getText().toString()),username);
                 Toast.makeText(activity, "Credit is added!", Toast.LENGTH_SHORT).show();
+
             }
         });
 

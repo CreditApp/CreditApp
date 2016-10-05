@@ -119,6 +119,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:paddingBottom="10dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
         android:text="Apply" />
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import com.example.android.itcreditonline.Model.User;
 public class CreditsFragment extends Fragment {
     private Activity activity;
     private RecyclerView newsRV;
-
+    private CreditsAdapter creditsAdapter;
 
     public CreditsFragment() {
         // Required empty public constructor
@@ -40,16 +41,16 @@ public class CreditsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_credits, container, false);
 
         User u = DBManager.getInstance(activity).getUser(activity.getIntent().getStringExtra("loggedUser"));
-        CreditsAdapter creditsAdapter = new CreditsAdapter(activity,u.getCredits());
+        creditsAdapter = new CreditsAdapter(activity,u.getCredits());
         newsRV = (RecyclerView) root.findViewById(R.id.creditsRecyclerView);
         newsRV.setLayoutManager(new LinearLayoutManager(activity));
         newsRV.setAdapter(creditsAdapter);
 
-
-
-
-
         return root ;
     }
 
+    public void refreshsAdapter() {
+        if(creditsAdapter!= null)
+        creditsAdapter.notifyDataSetChanged();
+    }
 }

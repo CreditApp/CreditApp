@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         super.onTabSelected(tab);
                         int tabIconColor = ContextCompat.getColor(MainActivity.this, R.color.tabSelectedIconColor);
                         tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+                        ((CreditsFragment)adapter.getItem(2)).refreshsAdapter();
                     }
 
                     @Override
@@ -59,11 +60,14 @@ public class MainActivity extends AppCompatActivity {
                         super.onTabUnselected(tab);
                         int tabIconColor = ContextCompat.getColor(MainActivity.this, R.color.tabUnselectedIconColor);
                         tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+                        ((CreditsFragment)adapter.getItem(2)).refreshsAdapter();
                     }
 
                     @Override
                     public void onTabReselected(TabLayout.Tab tab) {
+
                         super.onTabReselected(tab);
+                        ((CreditsFragment)adapter.getItem(2)).refreshsAdapter();
                     }
                 }
         );

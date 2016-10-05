@@ -23,7 +23,7 @@ public class DBManager extends SQLiteOpenHelper {
     private static DBManager ourInstance;
     private static int version = 1;
     private Context context;
-    private ArrayList<Credit> credits ;
+    private ArrayList<Credit> credits;
     private HashMap<String, User> registerredUsers;//username -> User
 
 
@@ -57,7 +57,7 @@ public class DBManager extends SQLiteOpenHelper {
                 String phoneNumber = cursor.getString(5);
                 String address = cursor.getString(6);
                 String id = cursor.getString(7);
-                Cursor cursor2 = getWritableDatabase().rawQuery("SELECT * FROM TABLE_CREDITS WHERE CREDITS_OWNER= ?",new String[]{username});
+                Cursor cursor2 = getWritableDatabase().rawQuery("SELECT * FROM TABLE_CREDITS WHERE CREDITS_OWNER= ?", new String[]{username});
                 while (cursor2.moveToNext()) {
                     int credit_id = cursor2.getInt(0);
                     int duration = cursor2.getInt(1);
@@ -116,20 +116,15 @@ public class DBManager extends SQLiteOpenHelper {
 
     }
 
-    public void addCredit(int duration,double amount,String owner){
+    public void addCredit(int duration, double amount, String owner) {
         ContentValues values = new ContentValues();
-        values.put("CREDITS_DURATION",duration);
-        values.put("CREDITS_AMOUNT",amount);
-        values.put("CREDITS_OWNER",owner);
-        getWritableDatabase().insert("TABLE_CREDITS",null,values);
-        Credit credit = new Credit(duration,amount,owner);
+        values.put("CREDITS_DURATION", duration);
+        values.put("CREDITS_AMOUNT", amount);
+        values.put("CREDITS_OWNER", owner);
+        getWritableDatabase().insert("TABLE_CREDITS", null, values);
+        Credit credit = new Credit(duration, amount, owner);
         credits.add(credit);
         registerredUsers.get(owner).addCredit(credit);
-
-
-
-
-
     }
 
     public static boolean isValidEmail(String email) {
@@ -150,9 +145,9 @@ public class DBManager extends SQLiteOpenHelper {
         }
         return false;
     }
-    public  User getUser(String username){
-        return  registerredUsers.get(username);
 
+    public User getUser(String username) {
+        return registerredUsers.get(username);
 
 
     }

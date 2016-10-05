@@ -48,6 +48,7 @@ public class AboutFragment extends Fragment {
             }
         });
 
+        //TODO fix
         mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +60,7 @@ public class AboutFragment extends Fragment {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.easycredit.bg/"));
                 startActivity(browserIntent);
             }
         });
