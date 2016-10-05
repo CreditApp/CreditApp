@@ -20,11 +20,11 @@
             android:padding="3dp">
 
             <TextView
-                android:id="@+id/credit_id"
+                android:id="@+id/credits"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="New Text"
+                android:text="@string/credit_information"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
 

@@ -29,12 +29,10 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
     }
     public class CreditsVH extends RecyclerView.ViewHolder{
 
-        TextView id;
         TextView duration;
         TextView amount;
         public CreditsVH(View itemView) {
             super(itemView);
-            id = (TextView) itemView.findViewById(R.id.credit_id);
             duration = (TextView) itemView.findViewById(R.id.credit_duration);
             amount = (TextView) itemView.findViewById(R.id.credit_amount);
         }
@@ -49,7 +47,6 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
     @Override
     public void onBindViewHolder(CreditsVH holder, int position) {
         final Credit credit = credits.get(position);
-        holder.id.setText("Credit: " +credit.getId()+"");
         holder.duration.setText("Duration: " + credit.getDuration()+" month.");
         holder.amount.setText("Amount: "+credit.getAmount()+" lv.");
 
