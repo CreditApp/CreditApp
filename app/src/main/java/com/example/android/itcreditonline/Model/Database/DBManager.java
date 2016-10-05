@@ -124,7 +124,7 @@ public class DBManager extends SQLiteOpenHelper {
         getWritableDatabase().insert("TABLE_CREDITS", null, values);
         Credit credit = new Credit(duration, amount, owner);
         credits.add(credit);
-        registerredUsers.get(owner).addCredit(credit);
+        registerredUsers.get(owner).setCredits(credits);
     }
 
     public static boolean isValidEmail(String email) {

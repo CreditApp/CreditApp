@@ -61,12 +61,12 @@ public class User {
         return id;
     }
 
-    public void addCredit(Credit credit){
-        credits.add(credit);
-    }
-
     public ArrayList<Credit> getCredits() {
         return credits;
+    }
+
+    public void setCredits(ArrayList<Credit> credits) {
+        this.credits = credits;
     }
 
     @Override
