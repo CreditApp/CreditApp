@@ -110,6 +110,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:hint="Enter here"
+                        android:inputType="numberDecimal"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -139,6 +140,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:hint="Enter here"
+                        android:inputType="numberDecimal"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -168,6 +170,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:hint="Enter here"
+                        android:inputType="numberDecimal"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -184,14 +187,19 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Clean" />
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/clean" />
 
                     <Button
                         android:id="@+id/button_calculate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Calculate" />
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/white"
+                        android:text="@string/calculate" />
 
 
                 </LinearLayout>
