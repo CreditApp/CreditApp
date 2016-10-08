@@ -14,13 +14,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 
 public class CalculatorFragment extends Fragment {
     private Activity activity;
-    private boolean checkRadioBtn1=true;
-    private boolean checkRadioBtn2=false;
-    private boolean checkRadioBtn3=false;
-    private boolean checkRadioBtn4=false;
+    private boolean checkRadioBtn1 = true;
+    private boolean checkRadioBtn2 = false;
+    private boolean checkRadioBtn3 = false;
+    private boolean checkRadioBtn4 = false;
 
     public CalculatorFragment() {
 
@@ -64,10 +66,10 @@ public class CalculatorFragment extends Fragment {
                         credit2ET.setText("");
                         credit3ET.setText("");
                         credit1ET.requestFocus();
-                        checkRadioBtn1=true;
-                        checkRadioBtn2=false;
-                        checkRadioBtn3=false;
-                        checkRadioBtn4=false;
+                        checkRadioBtn1 = true;
+                        checkRadioBtn2 = false;
+                        checkRadioBtn3 = false;
+                        checkRadioBtn4 = false;
                         result.setText(" ");
                         break;
 
@@ -80,10 +82,10 @@ public class CalculatorFragment extends Fragment {
                         credit2ET.setText("");
                         credit3ET.setText("");
                         credit1ET.requestFocus();
-                        checkRadioBtn1=false;
-                        checkRadioBtn2=true;
-                        checkRadioBtn3=false;
-                        checkRadioBtn4=false;
+                        checkRadioBtn1 = false;
+                        checkRadioBtn2 = true;
+                        checkRadioBtn3 = false;
+                        checkRadioBtn4 = false;
                         result.setText(" ");
                         break;
 
@@ -95,10 +97,10 @@ public class CalculatorFragment extends Fragment {
                         credit2ET.setText("");
                         credit3ET.setText("");
                         credit1ET.requestFocus();
-                        checkRadioBtn1=false;
-                        checkRadioBtn2=false;
-                        checkRadioBtn3=true;
-                        checkRadioBtn4=false;
+                        checkRadioBtn1 = false;
+                        checkRadioBtn2 = false;
+                        checkRadioBtn3 = true;
+                        checkRadioBtn4 = false;
                         result.setText(" ");
                         break;
                     case R.id.button_annual_interest:
@@ -109,10 +111,10 @@ public class CalculatorFragment extends Fragment {
                         credit2ET.setText("");
                         credit3ET.setText("");
                         credit1ET.requestFocus();
-                        checkRadioBtn1=false;
-                        checkRadioBtn2=false;
-                        checkRadioBtn3=false;
-                        checkRadioBtn4=true;
+                        checkRadioBtn1 = false;
+                        checkRadioBtn2 = false;
+                        checkRadioBtn3 = false;
+                        checkRadioBtn4 = true;
                         result.setText(" ");
                         break;
 
@@ -141,37 +143,41 @@ public class CalculatorFragment extends Fragment {
                     Toast.makeText(activity, "Please enter valid data.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(checkRadioBtn1) {
+                if (checkRadioBtn1) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    result.setText("Monthly: " + credit2/credit1 +" month."+ "\n" +
-                            "All paid sum:" + credit1 +" lv." +"\n"+ "Year procent: " + credit3 + "%");
+                    double yearProcent = 1 + 1 / credit2 / 2;
+                    double moneyExtra = credit1 * (yearProcent / 100);
+                    double moneyReturn = credit1 + moneyExtra;
+                    double perMonth = moneyReturn / credit2;
+                    result.setText("Monthly: " + new DecimalFormat("##.##").format(perMonth) + " month." + "\n" +
+                            "All paid sum:" + new DecimalFormat("##.##").format(moneyReturn) + " lv." + "\n" + "Year procent: " + new DecimalFormat("##.##").format(yearProcent) + "%");
 
-                }else if(checkRadioBtn2){
+                } else if (checkRadioBtn2) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    result.setText("Maximum amount of credit: " + credit2/credit1+"lv." + "\n" +
-                            "All paid sum:" + credit1 +"lv."+"\n"+ "Year procent: " + credit3 + "%");
+                    //Enter valid formula here
+                    result.setText("Maximum amount of credit: " + credit2 / credit1 + "lv." + "\n" +
+                            "All paid sum:" + credit1 + "lv." + "\n" + "Year procent: " + credit3 + "%");
 
-                }else if(checkRadioBtn3){
+                } else if (checkRadioBtn3) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
+                    //Enter valid formula here
                     result.setText("Credit will be expired: " + ".....");
 
-                }else if(checkRadioBtn4){
+                } else if (checkRadioBtn4) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    result.setText("Year procent: " + credit2/credit1 +"%"+ "\n" +
-                            "All paid sum:" + credit1 +" lv." +"\n"+ "Year procent: " + credit3 + "%");
+                    //Enter valid formula here
+                    result.setText("Year procent: " + credit2 / credit1 + "%" + "\n" +
+                            "All paid sum:" + credit1 + " lv." + "\n" + "Year procent: " + credit3 + "%");
 
                 }
-
-
-
 
 
             }
@@ -196,4 +202,5 @@ public class CalculatorFragment extends Fragment {
         }
         return true;
     }
+
 }
