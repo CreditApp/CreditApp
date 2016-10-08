@@ -1,6 +1,7 @@
 package com.example.android.itcreditonline;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.android.itcreditonline.Model.Database.DBManager;
 import com.example.android.itcreditonline.Model.ReadRss;
 
 import java.util.ArrayList;
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+
+        String loggedUser = intent.getStringExtra("loggedUser");
+
+        DBManager.saveLastLoggedUser(loggedUser,MainActivity.this);
+
         tab();
 
     }

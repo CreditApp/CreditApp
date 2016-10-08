@@ -2,16 +2,16 @@ package com.example.android.itcreditonline;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
+
 //TODO remove later
-import com.example.android.itcreditonline.Model.ReadRss;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,7 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        String loggedUser = DBManager.getLastLoggedUser(this);
 
+        if (!loggedUser.equals("No logged user!")) {
+            Intent login = new Intent(LoginActivity.this, MainActivity.class);
+            login.putExtra("loggedUser", loggedUser);
+            startActivity(login);
+            finish();
+        }
 
         loginButton = (Button) findViewById(R.id.button_login);
         registerButton = (Button) findViewById(R.id.button_regiter);
@@ -36,23 +43,24 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(usernameET.getText().toString().trim().isEmpty()){
+                if (usernameET.getText().toString().trim().isEmpty()) {
                     usernameET.setError("Please enter your username");
                     usernameET.requestFocus();
                     return;
                 }
-                if(passwordET.getText().toString().trim().isEmpty()){
+                if (passwordET.getText().toString().trim().isEmpty()) {
                     passwordET.setError("Please enter your password");
                     passwordET.requestFocus();
                     return;
                 }
 
                 //if user exists
-                if(DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(),passwordET.getText().toString())){
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                if (DBManager.getInstance(LoginActivity.this).validateUser(usernameET.getText().toString(), passwordET.getText().toString())) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("loggedUser", usernameET.getText().toString());
                     startActivity(intent);
-                }else{
+                    finish();
+                } else {
                     usernameET.setText("");
                     passwordET.setText("");
                     usernameET.requestFocus();
@@ -65,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 usernameET.setError(null);
                 startActivity(intent);
             }
@@ -73,5 +81,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

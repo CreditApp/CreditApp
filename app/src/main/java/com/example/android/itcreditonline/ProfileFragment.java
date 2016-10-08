@@ -3,11 +3,13 @@ package com.example.android.itcreditonline;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
@@ -27,6 +29,7 @@ public class ProfileFragment extends Fragment {
     private TextView phoneTV;
     private TextView idTV;
     private String username;
+    private Button logoutBtn;
 
     @Override
     public void onAttach(Context activity) {
@@ -54,6 +57,16 @@ public class ProfileFragment extends Fragment {
         emailTV.setText(u.getEmail());
         phoneTV.setText(u.getPhoneNumber());
         idTV.setText(u.getId());
+        logoutBtn = (Button) root.findViewById(R.id.log_out_button);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBManager.logout(activity);
+                Intent intent = new Intent(activity,LoginActivity.class);
+                startActivity(intent);
+                activity.finish();
+            }
+        });
         return root;
 
     }
