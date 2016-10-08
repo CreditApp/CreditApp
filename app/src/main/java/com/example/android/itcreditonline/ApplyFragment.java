@@ -24,6 +24,7 @@ public class ApplyFragment extends Fragment {
     Activity activity;
     private double total;
     private int time = 1;
+    private int sum = 100;
 
     public ApplyFragment() {
         // Required empty public constructor
@@ -44,17 +45,19 @@ public class ApplyFragment extends Fragment {
         final TextView sumTV = (TextView) root.findViewById(R.id.sum_text_view);
         final TextView timeTV = (TextView) root.findViewById(R.id.month_text_view);
         final TextView totalSumRet = (TextView) root.findViewById(R.id.total_sum);
+        totalSumRet.setText(101.0 +  " lv");
         SeekBar seekBarSum = (SeekBar) root.findViewById(R.id.seekBarSum);
         SeekBar seekBarMonth = (SeekBar) root.findViewById(R.id.seekBarMonth);
         Button apply = (Button) root.findViewById(R.id.apply_credit_button);
-
-        //TODO fix forumila
+        
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 sumTV.setText(progress + 100 + "");
-                total = (progress + 100) * 1.01 * time;
-                totalSumRet.setText(total + "");
+                sum = progress + 100;
+                total = (progress + 100) * Math.pow(1.01,time);
+                total = (double)Math.round(total * 100d) / 100d;
+                totalSumRet.setText(total + " lv");
 
             }
 
@@ -73,15 +76,10 @@ public class ApplyFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 timeTV.setText(progress + 1 + "");
-
-                Log.e("calculator", progress + " " + time);
-                if (progress >= time)
-                    total += progress * 1.01;
-                else
-                    total -= progress* 1.01;
-
                 time = progress + 1;
-                totalSumRet.setText(total + "");
+                total = sum * Math.pow(1.01,time);
+                total = (double)Math.round(total * 100d) / 100d;
+                totalSumRet.setText(total + " lv");
             }
 
             @Override
