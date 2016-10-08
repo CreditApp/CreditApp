@@ -38,11 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
-
         String loggedUser = intent.getStringExtra("loggedUser");
-
         DBManager.saveLastLoggedUser(loggedUser,MainActivity.this);
-
         tab();
 
     }
