@@ -147,7 +147,7 @@ public class CalculatorFragment extends Fragment {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    double yearProcent = 1 + 1 / credit2 / 2;
+                    double yearProcent = credit3 + credit3 / credit2 / 2;
                     double moneyExtra = credit1 * (yearProcent / 100);
                     double moneyReturn = credit1 + moneyExtra;
                     double perMonth = moneyReturn / credit2;
