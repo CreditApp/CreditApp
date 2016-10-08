@@ -11,7 +11,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
             <LinearLayout
@@ -23,7 +24,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:text="@string/what_u_want_to_calculate"
                     android:textColor="@color/colorPrimary"
                     android:textSize="25sp"
@@ -200,24 +200,23 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/result"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
                         android:text="Result:"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/result_end"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="3"
                         android:hint="Result"
                         android:textSize="18sp"
