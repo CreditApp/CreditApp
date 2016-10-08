@@ -40,6 +40,7 @@ public class CalculatorFragment extends Fragment {
         final EditText credit1ET = (EditText) row.findViewById(R.id.credit_1_et);
         final EditText credit2ET = (EditText) row.findViewById(R.id.credit_2_et);
         final EditText credit3ET = (EditText) row.findViewById(R.id.credit_3_et);
+        final Button cleanBtn = (Button) row.findViewById(R.id.button_clean);
         final Button calculateBtn = (Button) row.findViewById(R.id.button_calculate);
 
         RadioGroup group = (RadioGroup) row.findViewById(R.id.radio_group);
@@ -89,6 +90,15 @@ public class CalculatorFragment extends Fragment {
 
 
                 }
+            }
+        });
+
+        cleanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                credit1ET.setText(" ");
+                credit2ET.setText(" ");
+                credit3ET.setText(" ");
             }
         });
 
