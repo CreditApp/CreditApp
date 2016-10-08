@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
-import com.example.android.itcreditonline.Model.User;
 
 
 /**
@@ -39,7 +38,7 @@ public class ApplyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_calculator, container, false);
+        View root = inflater.inflate(R.layout.fragment_apply, container, false);
         final TextView sumTV = (TextView) root.findViewById(R.id.sum_text_view);
         final TextView timeTV = (TextView) root.findViewById(R.id.month_text_view);
         final TextView totalSumRet = (TextView) root.findViewById(R.id.total_sum);

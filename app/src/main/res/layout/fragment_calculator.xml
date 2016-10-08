@@ -5,6 +5,59 @@
     android:orientation="vertical"
     tools:context="com.example.android.itcreditonline.CalculatorFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/what_u_want_to_calculate"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/how_much_is_the_monthly_installment"
+                android:id="@+id/button_monthly_inst"
+                android:textSize="18sp"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/what_is_the_maximum_amount_i_can_withdraw"
+                android:textSize="18sp"
+                android:id="@+id/button_max_amount"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:text="@string/how_long_will_back_the_loan"
+                android:id="@+id/button_credit_back"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/what_is_the_amount_of_annual_interest"
+                android:id="@+id/button_annual_interest"
+                android:textSize="18sp"/>
+
+
+        </RadioGroup>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,113 +68,121 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:gravity="center"
-            android:text="Calculate credit"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_margin="5dp"
+            android:text="@string/parameters_credit"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5">
-
+            android:layout_weight="1">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="bottom|center"
-                android:text="Sum: "
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sum_text_view"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="bottom"
-                android:text="100"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:id="@+id/credit_1_tv"
+                android:text="Simple text:"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/credit_1_et"
+                android:hint="Enter here"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/credit_2_tv"
+                android:text="Simple text:"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/credit_2_et"
+                android:hint="Enter here"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/credit_3_tv"
+                android:text="Simple text:"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/credit_3_et"
+                android:hint="Enter here"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/result"
+                android:text="Result:"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:id="@+id/result_end"
+                android:hint="Result"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
 
 
         </LinearLayout>
 
 
-        <SeekBar
-            android:id="@+id/seekBarSum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="2000" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="bottom|center"
-                android:text="Duration: "
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/month_text_view"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:text="1"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-        <SeekBar
-            android:id="@+id/seekBarMonth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="17" />
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Total sum for return:" />
-
-        <TextView
-            android:id="@+id/total_sum"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="0 lv." />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/apply_credit_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
-        android:text="Apply" />
-
 
 </LinearLayout>
