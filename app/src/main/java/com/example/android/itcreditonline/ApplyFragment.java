@@ -49,7 +49,7 @@ public class ApplyFragment extends Fragment {
         SeekBar seekBarSum = (SeekBar) root.findViewById(R.id.seekBarSum);
         SeekBar seekBarMonth = (SeekBar) root.findViewById(R.id.seekBarMonth);
         Button apply = (Button) root.findViewById(R.id.apply_credit_button);
-        
+
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

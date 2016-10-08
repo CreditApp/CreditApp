@@ -190,6 +190,8 @@
             <Button
                 android:id="@+id/log_out_button"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
                 android:layout_height="wrap_content"
                 android:text="Log out" />
         </LinearLayout>
