@@ -44,6 +44,14 @@
                 android:text="100"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="@string/lv"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -77,6 +85,14 @@
                 android:layout_weight="1"
                 android:gravity="bottom"
                 android:text="1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="@string/month"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
