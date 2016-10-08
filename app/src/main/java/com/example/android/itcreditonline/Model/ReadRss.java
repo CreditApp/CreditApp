@@ -104,7 +104,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
                         }else if(current.getNodeName().equalsIgnoreCase("description")){
                             item.setDescription(current.getTextContent());
                         }else if(current.getNodeName().equalsIgnoreCase("pubDate")){
-                            item.setPubDate(current.getTextContent());
+                            item.setPubDate(current.getTextContent() + "\r\n");
                         }else if(current.getNodeName().equalsIgnoreCase("link")){
                             item.setLink(current.getTextContent());
                         }else if(current.getNodeName().equalsIgnoreCase("link")){

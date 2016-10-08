@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.profile_gray,
             R.drawable.wallet_gray,
             R.drawable.calculator_gray,
+            R.drawable.handshake,
             R.drawable.about_gray,
             R.drawable.map_gray
     };
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new ProfileFragment(), "Profile");
         adapter.addFrag(new CreditsFragment(), "Credits");
         adapter.addFrag(new CalculatorFragment(), "Calculator");
+        adapter.addFrag(new ApplyFragment(), "Apply");
         adapter.addFrag(new AboutFragment(), "About");
         adapter.addFrag(new ProfileFragment(), "Map");
         viewPager.setAdapter(adapter);

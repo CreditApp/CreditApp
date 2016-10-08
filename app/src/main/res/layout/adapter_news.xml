@@ -25,7 +25,7 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:text="New Text"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:id="@+id/titleTV"
                 android:textColor="@color/black"
                 />
