@@ -31,6 +31,8 @@
     <string name="how_much_is_the_monthly_installment">How much is the monthly installment?</string>
     <string name="lv">lv.</string>
     <string name="month">month</string>
+    <string name="clean">Clean</string>
+    <string name="calculate">Calculate</string>
 
 
 </resources>
