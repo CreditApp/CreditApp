@@ -23,7 +23,8 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/radio_group">
 
             <RadioButton
                 android:layout_width="match_parent"
@@ -83,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/credit_1_tv"
-                android:text="Simple text:"
+                android:text="Loan amount: "
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/credit_2_tv"
-                android:text="Simple text:"
+                android:text="Term of the loan in months:"
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -136,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/credit_3_tv"
-                android:text="Simple text:"
+                android:text="Annual interest rate:"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:textSize="18sp"
