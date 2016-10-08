@@ -29,6 +29,8 @@
     <string name="how_long_will_back_the_loan">How long will back the loan?</string>
     <string name="what_is_the_maximum_amount_i_can_withdraw">What is the maximum amount I can withdraw?</string>
     <string name="how_much_is_the_monthly_installment">How much is the monthly installment?</string>
+    <string name="lv">lv.</string>
+    <string name="month">month</string>
 
 
 </resources>

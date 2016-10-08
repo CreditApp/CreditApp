@@ -1,7 +1,9 @@
 package com.example.android.itcreditonline.Model.Database;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -124,7 +126,7 @@ public class DBManager extends SQLiteOpenHelper {
         getWritableDatabase().insert("TABLE_CREDITS", null, values);
         Credit credit = new Credit(duration, amount, owner);
         credits.add(credit);
-        registerredUsers.get(owner).setCredits(credits);
+        registerredUsers.get(owner).addCredit(credit);
     }
 
     public static boolean isValidEmail(String email) {
@@ -149,7 +151,28 @@ public class DBManager extends SQLiteOpenHelper {
     public User getUser(String username) {
         return registerredUsers.get(username);
 
+    }
 
+    public static void saveLastLoggedUser (String loggedUser, Activity activity) {
+        SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        String key = "lastLoggedUser";
+        editor.putString(key, loggedUser);
+        editor.apply();
+    }
+
+    public static String getLastLoggedUser (Activity activity) {
+        SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
+        String loggedUser = prefs.getString("lastLoggedUser", "No logged user!");
+        return  loggedUser;
+    }
+
+    public static void logout(Activity activity) {
+        SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        String key = "lastLoggedUser";
+        editor.putString(key, "No logged user!");
+        editor.apply();
     }
 
     public boolean existsUser(String username) {

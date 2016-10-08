@@ -1,5 +1,6 @@
 package com.example.android.itcreditonline;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnRegister;
     private EditText phone;
     private EditText id;
+    public static final int REG_SUCCCSSFULLY=100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +102,10 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 DBManager.getInstance(RegisterActivity.this).registerUser(username.getText().toString(), name.getText().toString(),surName.getText().toString(), password.getText().toString(), email.getText().toString(), phone.getText().toString(),address.getText().toString(), id.getText().toString());
-
+                Intent intent = new Intent();
+                intent.putExtra("username",username.getText().toString());
+                intent.putExtra("password",password.getText().toString());
+                setResult(REG_SUCCCSSFULLY,intent);
                 finish();
             }
 

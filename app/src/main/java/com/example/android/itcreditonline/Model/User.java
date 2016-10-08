@@ -65,8 +65,8 @@ public class User {
         return credits;
     }
 
-    public void setCredits(ArrayList<Credit> credits) {
-        this.credits = credits;
+    public void addCredit(Credit credit){
+        credits.add(credit);
     }
 
     @Override
