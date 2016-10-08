@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.example.android.itcreditonline.Model.Database.DBManager;
 public class ApplyFragment extends Fragment {
     Activity activity;
     private double total;
+    private int time = 1;
 
     public ApplyFragment() {
         // Required empty public constructor
@@ -50,9 +52,9 @@ public class ApplyFragment extends Fragment {
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                sumTV.setText(progress+100+"");
-                total = progress+100;
-                //totalSumRet.setText(total+ "");
+                sumTV.setText(progress + 100 + "");
+                total = (progress + 100) * 1.01 * time;
+                totalSumRet.setText(total + "");
 
             }
 
@@ -70,9 +72,16 @@ public class ApplyFragment extends Fragment {
         seekBarMonth.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                timeTV.setText(progress+1 + "" );
-                total += progress*0.01;
-                totalSumRet.setText(total+ "");
+                timeTV.setText(progress + 1 + "");
+
+                Log.e("calculator", progress + " " + time);
+                if (progress >= time)
+                    total += progress * 1.01;
+                else
+                    total -= progress* 1.01;
+
+                time = progress + 1;
+                totalSumRet.setText(total + "");
             }
 
             @Override
@@ -89,7 +98,7 @@ public class ApplyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String username = activity.getIntent().getStringExtra("loggedUser");
-                DBManager.getInstance(activity).addCredit(Integer.parseInt(timeTV.getText().toString()),Integer.parseInt(sumTV.getText().toString()),username);
+                DBManager.getInstance(activity).addCredit(Integer.parseInt(timeTV.getText().toString()), Integer.parseInt(sumTV.getText().toString()), username);
                 Toast.makeText(activity, "Credit is added!", Toast.LENGTH_SHORT).show();
 
             }
