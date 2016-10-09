@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (DBManager.getInstance(RegisterActivity.this).existsUser(username.getText().toString())) {
-                    username.setError("User with this name is exist");
+                    username.setError("User with this name already exist");
                     username.requestFocus();
                     return;
                 }
