@@ -17,11 +17,11 @@
     <string name="phone_info">Phone:</string>
     <string name="account_information">Account information</string>
 
-    <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nulla vehicula quis enim sit amet dignissim. Phasellus lobortis at dolor sit amet interdum.
-        Sed in magna eros. Etiam sed elit eget mauris tristique accumsan. Sed suscipit nibh ante,
-        id tincidunt purus gravida id. Cras ac vulputate eros. Nullam scelerisque augue id porttitor bibendum.
-        Integer aliquam ornare dui..</string>
+    <string name="loremIpsum">ITCreditOnline is a consumer loan (between 100 and 3,000 lev) for a period of 8 to 43 weeks.
+        The loan is paid through pre-agreed fixed installments every week.
+        These payments include principal and interest. For all its customers by providing a weekly
+        collection of installment from their homes - convenient and easy!
+        Without having customers wait in lines or visit remote offices.</string>
     <string name="credit_information">Credit information</string>
     <string name="what_u_want_to_calculate">What u want to calculate?</string>
     <string name="parameters_credit">Parameters of credit:</string>
@@ -33,6 +33,9 @@
     <string name="month">month</string>
     <string name="clean">Clean</string>
     <string name="calculate">Calculate</string>
+    <string name="service_for_contributions_is_very_convenient_for_most_of_our_clients_it_allows_them_to_take_care_of_their_daily_duties_without_unnecessary_devote_time_to_service_the_loan_on_the_other_hand_allows_our_credit_consultants_to_become_better_acquainted_with_customers_to_understand_their_needs_and_to_be_able_to_give_adequate_advice_and_offer_the_best_possible_service_just_personal_service_at_home_differs_service_we_offer_from_the_standard_ways_of_providing_credit">Service for contributions is very convenient for most of our clients. It allows them to take care of their daily duties without unnecessary devote time to service the loan. On the other hand, allows our Credit Consultants to become better acquainted with customers to understand their needs and to be able to give adequate advice and offer the best possible service. Just personal service at home differs service we offer, from the standard ways of providing credit.</string>
+    <string name="decision_to_grant_the_loan_is_taken_only_on_the_basis_of_information_provided_by_clients_the_more_the_more_accurate_and_clearer_it_is_the_easier_and_faster_our_software_products_and_credit_inspectors_will_be_able_to_determine_the_optimal_option_for_each_client_and_this_will_increase_the_likelihood_that_you_will_be_granted_the_desired_amount">Decision to grant the loan is taken only on the basis of information provided by clients. The more, the more accurate and clearer it is, the easier and faster our software products and Credit Inspectors will be able to determine the optimal option for each client and this will increase the likelihood that you will be granted the desired amount.</string>
+    <string name="itcreditonline_has_been_certified_for_administrator_of_personal_data_by_the_commission_for_the_protection_of_personal_data_personal_data_of_our_customers_are_protected_and_company_store_and_use_them_in_strict_compliance_with_the_provisions_of_the_law_on_protection_of_personal_data">\'ITCREDITONLINE\' has been certified for administrator of personal data by the Commission for the protection of personal data. Personal data of our customers are protected and Company store and use them in strict compliance with the provisions of the Law on Protection of Personal Data.</string>
 
 
 </resources>

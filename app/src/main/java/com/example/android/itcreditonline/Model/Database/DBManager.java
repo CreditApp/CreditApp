@@ -46,7 +46,7 @@ public class DBManager extends SQLiteOpenHelper {
         if (registerredUsers.isEmpty()) {
             //select all users from db
             Cursor cursor = getWritableDatabase().rawQuery("SELECT * FROM TABLE_USERS", null);
-            String username=null;
+            String username = null;
             User user = null;
             while (cursor.moveToNext()) {
 
@@ -61,21 +61,16 @@ public class DBManager extends SQLiteOpenHelper {
                 user = new User(username, name, surname, password, email, phoneNumber, address, id);
                 registerredUsers.put(username, user);
             }
-                Cursor cursor2 = getWritableDatabase().rawQuery("SELECT * FROM TABLE_CREDITS ",null);
-                while (cursor2.moveToNext()) {
-                    int credit_id = cursor2.getInt(0);
-                    int duration = cursor2.getInt(1);
-                    double amount = cursor2.getDouble(2);
-                    String owner = cursor2.getString(3);
-                    Credit credit = new Credit(credit_id, duration, amount, owner);
-                    registerredUsers.get(owner).addCredit(credit);
+            Cursor cursor2 = getWritableDatabase().rawQuery("SELECT * FROM TABLE_CREDITS ", null);
+            while (cursor2.moveToNext()) {
+                int credit_id = cursor2.getInt(0);
+                int duration = cursor2.getInt(1);
+                double amount = cursor2.getDouble(2);
+                String owner = cursor2.getString(3);
+                Credit credit = new Credit(credit_id, duration, amount, owner);
+                registerredUsers.get(owner).addCredit(credit);
 
-                }
-
-
-
-
-
+            }
 
 
         }
@@ -83,7 +78,7 @@ public class DBManager extends SQLiteOpenHelper {
         List<User> users = new ArrayList<>();
         for (User u : registerredUsers.values()) {
             users.add(u);
-            Log.e("Credits",u.getCredits().toString());
+            Log.e("Credits", u.getCredits().toString());
 
             Log.e("Register users", users.toString());
 
@@ -91,8 +86,6 @@ public class DBManager extends SQLiteOpenHelper {
 
 
     }
-
-
 
 
     @Override
@@ -132,7 +125,7 @@ public class DBManager extends SQLiteOpenHelper {
         getWritableDatabase().insert("TABLE_CREDITS", null, values);
         Credit credit = new Credit(duration, amount, owner);
         getUser(owner).addCredit(credit);
-       Log.e ("List size",getUser(owner).getCredits().size()+"");
+        Log.e("List size", getUser(owner).getCredits().size() + "");
 
     }
 
@@ -160,7 +153,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     }
 
-    public  void saveLastLoggedUser (String loggedUser) {
+    public void saveLastLoggedUser(String loggedUser) {
         SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String key = "lastLoggedUser";
@@ -168,13 +161,13 @@ public class DBManager extends SQLiteOpenHelper {
         editor.apply();
     }
 
-    public  String getLastLoggedUser () {
+    public String getLastLoggedUser() {
         SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
         String loggedUser = prefs.getString("lastLoggedUser", "No logged user!");
-        return  loggedUser;
+        return loggedUser;
     }
 
-    public void logout( ) {
+    public void logout() {
         SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String key = "lastLoggedUser";
