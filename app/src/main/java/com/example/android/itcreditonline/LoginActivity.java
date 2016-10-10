@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        String loggedUser = DBManager.getLastLoggedUser(this);
+        String loggedUser = DBManager.getInstance(this).getLastLoggedUser();
 
         if (!loggedUser.equals("No logged user!")) {
             Intent login = new Intent(LoginActivity.this, MainActivity.class);
