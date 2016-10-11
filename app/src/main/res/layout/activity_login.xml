@@ -34,8 +34,7 @@
                 android:layout_height="wrap_content"
                 app:mtf_image="@drawable/icon_username"
                 app:mtf_labelColor="#700"
-                android:layout_gravity="center"
-                app:mtf_openKeyboardOnFocus="true">
+                android:layout_gravity="center">
 
                 <EditText
                     android:id="@+id/username_et"
@@ -54,8 +53,7 @@
                 android:layout_height="wrap_content"
                 app:mtf_image="@drawable/icon_password"
                 app:mtf_labelColor="#700"
-                android:layout_gravity="center"
-                app:mtf_openKeyboardOnFocus="true">
+                android:layout_gravity="center">
 
                 <EditText
                     android:id="@+id/password_et"
