@@ -30,7 +30,7 @@
 
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
@@ -38,7 +38,7 @@
 
                 <EditText
                     android:id="@+id/usernameAdd"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -47,7 +47,7 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
@@ -55,7 +55,7 @@
 
                 <EditText
                     android:id="@+id/nameAdd"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -64,14 +64,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/surNameAdd"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -80,14 +80,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/passwordAdd"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -96,14 +96,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/repeatPassword"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -112,14 +112,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/email"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -128,14 +128,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/address"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -144,14 +144,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/namePhone"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
@@ -160,14 +160,14 @@
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 float:fletPadding="10dp">
 
                 <EditText
                     android:id="@+id/id_et"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
