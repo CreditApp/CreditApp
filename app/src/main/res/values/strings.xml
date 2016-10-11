@@ -46,6 +46,10 @@
     <string name="surname">Surname</string>
     <string name="id">ID:</string>
     <string name="log_out">Log out</string>
+    <string name="apply_for_credit">Apply for credit</string>
+    <string name="duration">Duration:</string>
+    <string name="total_sum_for_return">Total sum for return:</string>
+    <string name="apply">Apply</string>
 
 
 </resources>
