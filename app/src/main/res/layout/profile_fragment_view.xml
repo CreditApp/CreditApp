@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
 
@@ -23,6 +23,7 @@
                 android:gravity="center"
                 android:text="@string/account_information"
                 android:textSize="30sp"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -35,6 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="@string/username_info"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -45,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_weight="2"
+                    android:textColor="@color/black"
                     android:gravity="center|left"
                     android:textSize="22sp" />
 
@@ -60,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/name_info"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -69,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center|left"
+                    android:textColor="@color/black"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -82,7 +87,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Surname"
+                    android:text="@string/surname"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -92,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center|left"
+                    android:textColor="@color/black"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -106,6 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/address_info"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -115,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="left"
+                    android:textColor="@color/black"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -130,7 +139,7 @@
                     android:layout_weight="1"
                     android:text="@string/email_info"
                     android:textSize="22sp"
-
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <TextView
@@ -138,6 +147,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
+                    android:textColor="@color/black"
                     android:gravity="center|left"
                     android:textSize="22sp" />
 
@@ -153,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/phone_info"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -162,6 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center|left"
+                    android:textColor="@color/black"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -175,7 +187,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="ID: "
+                    android:text="@string/id"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -185,6 +198,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center|left"
+                    android:textColor="@color/black"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -195,7 +209,7 @@
                 android:textColor="@color/white"
                 android:background="@color/colorPrimary"
                 android:layout_height="wrap_content"
-                android:text="Log out" />
+                android:text="@string/log_out" />
         </LinearLayout>
     </ScrollView>
 

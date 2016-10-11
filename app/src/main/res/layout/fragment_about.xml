@@ -3,126 +3,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     tools:context="com.example.android.itcreditonline.AboutFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_margin="20dp"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Title1"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
-        android:text="1.What is IT Credit Online ?" />
+            <TextView
+                android:id="@+id/Title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1.What is IT Credit Online ?"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/question1"
-        android:textSize="20sp"
-        android:paddingBottom="15dp"
-        android:textColor="@color/black"
-        android:text="@string/loremIpsum" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Title3"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
-        android:text="2.Why we visit you at home ?" />
+            <TextView
+                android:id="@+id/question1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="@string/loremIpsum"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
 
+            <TextView
+                android:id="@+id/Title3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2.Why we visit you at home ?"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/question3"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:paddingBottom="15dp"
-        android:text="@string/service_for_contributions_is_very_convenient_for_most_of_our_clients_it_allows_them_to_take_care_of_their_daily_duties_without_unnecessary_devote_time_to_service_the_loan_on_the_other_hand_allows_our_credit_consultants_to_become_better_acquainted_with_customers_to_understand_their_needs_and_to_be_able_to_give_adequate_advice_and_offer_the_best_possible_service_just_personal_service_at_home_differs_service_we_offer_from_the_standard_ways_of_providing_credit" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Title4"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
-        android:text="3.Why are we gathering so much info ?" />
+            <TextView
+                android:id="@+id/question3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="@string/service_for_contributions_is_very_convenient_for_most_of_our_clients_it_allows_them_to_take_care_of_their_daily_duties_without_unnecessary_devote_time_to_service_the_loan_on_the_other_hand_allows_our_credit_consultants_to_become_better_acquainted_with_customers_to_understand_their_needs_and_to_be_able_to_give_adequate_advice_and_offer_the_best_possible_service_just_personal_service_at_home_differs_service_we_offer_from_the_standard_ways_of_providing_credit"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/question4"
-        android:textSize="20sp"
-        android:paddingBottom="15dp"
-        android:textColor="@color/black"
-        android:text="@string/decision_to_grant_the_loan_is_taken_only_on_the_basis_of_information_provided_by_clients_the_more_the_more_accurate_and_clearer_it_is_the_easier_and_faster_our_software_products_and_credit_inspectors_will_be_able_to_determine_the_optimal_option_for_each_client_and_this_will_increase_the_likelihood_that_you_will_be_granted_the_desired_amount" />
+            <TextView
+                android:id="@+id/Title4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3.Why are we gathering so much info ?"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Title5"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
-        android:text="4.What are we doing with the gathered info ?" />
+            <TextView
+                android:id="@+id/question4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="@string/decision_to_grant_the_loan_is_taken_only_on_the_basis_of_information_provided_by_clients_the_more_the_more_accurate_and_clearer_it_is_the_easier_and_faster_our_software_products_and_credit_inspectors_will_be_able_to_determine_the_optimal_option_for_each_client_and_this_will_increase_the_likelihood_that_you_will_be_granted_the_desired_amount"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/question5"
-        android:textSize="20sp"
-        android:paddingBottom="15dp"
-        android:textColor="@color/black"
-        android:text="@string/itcreditonline_has_been_certified_for_administrator_of_personal_data_by_the_commission_for_the_protection_of_personal_data_personal_data_of_our_customers_are_protected_and_company_store_and_use_them_in_strict_compliance_with_the_provisions_of_the_law_on_protection_of_personal_data" />
+            <TextView
+                android:id="@+id/Title5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4.What are we doing with the gathered info ?"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            app:srcCompat="@drawable/phone"
-            android:padding="15dp"
-            android:id="@+id/callIcon" />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:background="@null"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            app:srcCompat="@drawable/message"
-            android:id="@+id/messageIcon" />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:padding="15dp"
-            app:srcCompat="@drawable/web"
-            android:id="@+id/facebookIcon" />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:padding="15dp"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            app:srcCompat="@drawable/email"
-            android:id="@+id/mailIcon" />
+            <TextView
+                android:id="@+id/question5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="@string/itcreditonline_has_been_certified_for_administrator_of_personal_data_by_the_commission_for_the_protection_of_personal_data_personal_data_of_our_customers_are_protected_and_company_store_and_use_them_in_strict_compliance_with_the_provisions_of_the_law_on_protection_of_personal_data"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/callIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/phone" />
+
+                <ImageButton
+                    android:id="@+id/messageIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/message" />
+
+                <ImageButton
+                    android:id="@+id/facebookIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/web" />
+
+                <ImageButton
+                    android:id="@+id/mailIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/email" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
