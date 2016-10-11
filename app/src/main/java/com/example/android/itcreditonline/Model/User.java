@@ -18,7 +18,8 @@ public class User {
     private String id;
     private ArrayList<Credit> credits;
 
-    public User(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id,ArrayList<Credit> credits) {
+
+    public User(String username, String name, String surname, String pass, String email, String phoneNumber,String address, String id) {
         this.username = username;
         this.name = name;
         this.surname = surname;
@@ -27,7 +28,8 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.id = id;
-        this.credits = credits;
+        credits = new ArrayList<>();
+
 
     }
 
@@ -61,12 +63,14 @@ public class User {
         return id;
     }
 
-    public ArrayList<Credit> getCredits() {
-        return credits;
+    public void  addCredit(Credit credit){
+
+        credits.add(credit);
+
     }
 
-    public void addCredit(Credit credit){
-        credits.add(credit);
+    public ArrayList<Credit> getCredits() {
+        return credits;
     }
 
     @Override
@@ -80,7 +84,6 @@ public class User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", id='" + id + '\'' +
-                ", credits=" + credits +
                 '}';
     }
 }

@@ -48,8 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (username.getText().toString().trim().length() > 10 || username.getText().toString().trim().length() < 6) {
-                    username.setError("Username must be less than 10 and more than 6 symbols");
+                if (username.getText().toString().trim().length() < 6) {
+                    username.setError("Username must be more than 5 symbols");
                     username.requestFocus();
                     return;
                 }

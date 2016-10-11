@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBManager.logout(activity);
+                DBManager.getInstance(activity).logout();
                 Intent intent = new Intent(activity,LoginActivity.class);
                 startActivity(intent);
                 activity.finish();

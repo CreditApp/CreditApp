@@ -31,22 +31,6 @@
         android:textColor="@color/black"
         android:text="@string/loremIpsum" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Title2"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
-        android:text="2.Why IT Credit Online ?" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/question2"
-        android:paddingBottom="15dp"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:text="@string/loremIpsum" />
 
     <TextView
         android:layout_width="match_parent"
@@ -54,7 +38,7 @@
         android:id="@+id/Title3"
         android:textSize="20sp"
         android:textColor="@color/colorPrimary"
-        android:text="3.Why we visit you at home ?" />
+        android:text="2.Why we visit you at home ?" />
 
 
 
@@ -65,7 +49,7 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:paddingBottom="15dp"
-        android:text="@string/loremIpsum" />
+        android:text="@string/service_for_contributions_is_very_convenient_for_most_of_our_clients_it_allows_them_to_take_care_of_their_daily_duties_without_unnecessary_devote_time_to_service_the_loan_on_the_other_hand_allows_our_credit_consultants_to_become_better_acquainted_with_customers_to_understand_their_needs_and_to_be_able_to_give_adequate_advice_and_offer_the_best_possible_service_just_personal_service_at_home_differs_service_we_offer_from_the_standard_ways_of_providing_credit" />
 
     <TextView
         android:layout_width="match_parent"
@@ -73,7 +57,7 @@
         android:id="@+id/Title4"
         android:textSize="20sp"
         android:textColor="@color/colorPrimary"
-        android:text="4.Why are we gathering so much info ?" />
+        android:text="3.Why are we gathering so much info ?" />
 
     <TextView
         android:layout_width="match_parent"
@@ -82,7 +66,7 @@
         android:textSize="20sp"
         android:paddingBottom="15dp"
         android:textColor="@color/black"
-        android:text="@string/loremIpsum" />
+        android:text="@string/decision_to_grant_the_loan_is_taken_only_on_the_basis_of_information_provided_by_clients_the_more_the_more_accurate_and_clearer_it_is_the_easier_and_faster_our_software_products_and_credit_inspectors_will_be_able_to_determine_the_optimal_option_for_each_client_and_this_will_increase_the_likelihood_that_you_will_be_granted_the_desired_amount" />
 
     <TextView
         android:layout_width="match_parent"
@@ -90,7 +74,7 @@
         android:id="@+id/Title5"
         android:textSize="20sp"
         android:textColor="@color/colorPrimary"
-        android:text="5.What are we doing with the gathered info ?" />
+        android:text="4.What are we doing with the gathered info ?" />
 
     <TextView
         android:layout_width="match_parent"
@@ -99,7 +83,7 @@
         android:textSize="20sp"
         android:paddingBottom="15dp"
         android:textColor="@color/black"
-        android:text="@string/loremIpsum" />
+        android:text="@string/itcreditonline_has_been_certified_for_administrator_of_personal_data_by_the_commission_for_the_protection_of_personal_data_personal_data_of_our_customers_are_protected_and_company_store_and_use_them_in_strict_compliance_with_the_provisions_of_the_law_on_protection_of_personal_data" />
 
     <LinearLayout
         android:layout_width="match_parent"
