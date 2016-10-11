@@ -8,7 +8,7 @@
     <string name="password_again_reg">Repeat Password</string>
     <string name="name_reg">Name</string>
     <string name="username_reg">Username</string>
-    <string name="surName_reg">Surname</string>
+    <string name="surName_reg">Surname:</string>
     <string name="id_et">ID</string>
     <string name="username_info">Username:</string>
     <string name="name_info">Name:</string>
@@ -16,7 +16,7 @@
     <string name="email_info">Email:</string>
     <string name="phone_info">Phone:</string>
     <string name="account_information">Account information</string>
-    
+
 
 
     <string name="loremIpsum">ITCreditOnline is a consumer loan (between 100 and 3,000 lev) for a period of 8 to 43 weeks.
