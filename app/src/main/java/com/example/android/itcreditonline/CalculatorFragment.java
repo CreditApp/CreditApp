@@ -76,7 +76,7 @@ public class CalculatorFragment extends Fragment {
 
                     case R.id.button_max_amount:
                         credit1TV.setText("Optimum monthly payment: ");
-                        credit2TV.setText("How many months can pay:");
+                        credit2TV.setText("How many months can I pay:");
                         credit3TV.setText("Annual interest rate:");
                         credit1ET.setText("");
                         credit2ET.setText("");
@@ -136,9 +136,9 @@ public class CalculatorFragment extends Fragment {
         calculateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int credit1 = 0;
-                int credit2 = 0;
-                int credit3 = 0;
+                double credit1 = 0;
+                double credit2 = 0;
+                double credit3 = 0;
                 if (!isInteger(credit1ET.getText().toString().trim()) || !isInteger(credit2ET.getText().toString().trim()) || !isInteger(credit3ET.getText().toString().trim())) {
                     Toast.makeText(activity, "Please enter valid data.", Toast.LENGTH_SHORT).show();
                     return;
@@ -147,35 +147,46 @@ public class CalculatorFragment extends Fragment {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    double yearProcent = credit3 + credit3 / credit2 / 2;
-                    double moneyExtra = credit1 * (yearProcent / 100);
-                    double moneyReturn = credit1 + moneyExtra;
-                    double perMonth = moneyReturn / credit2;
+
+                    double total = credit1 * Math.pow(1 + (credit3 / 100), credit2);
+                    double perMonth = total / credit2;
+
                     result.setText("Monthly: " + new DecimalFormat("##.##").format(perMonth) + " month." + "\n" +
-                            "All paid sum:" + new DecimalFormat("##.##").format(moneyReturn) + " lv." + "\n" + "Year procent: " + new DecimalFormat("##.##").format(yearProcent) + "%");
+                            "All paid sum:" + new DecimalFormat("##.##").format(total) + " lv." + "\n" + "Monthly percent: " + new DecimalFormat("##.##").format(credit3) + "%");
 
                 } else if (checkRadioBtn2) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    //Enter valid formula here
-                    result.setText("Maximum amount of credit: " + credit2 / credit1 + "lv." + "\n" +
-                            "All paid sum:" + credit1 + "lv." + "\n" + "Year procent: " + credit3 + "%");
+
+                    double q = 1 + credit3 / 100;
+                    double total = (credit1 * (Math.pow(q, credit2) - 1)) / (Math.pow(q, credit2) * (q - 1));
+                    double toPay = credit1 * credit2;
+                    result.setText("Maximum amount of credit: " + Math.ceil(total) + "lv." + "\n" +
+                            "All paid sum:" + (int)toPay + "lv." + "\n" + "Monthly percent: " + credit3 + "%");
 
                 } else if (checkRadioBtn3) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
-                    //Enter valid formula here
-                    result.setText("Credit will be expired: " + ".....");
+
+                    double q = 1 + credit3 / 100;
+                    double a = (credit1 * (q - 1)) / credit2;
+                    double k =  Math.log(1 -  a )/ Math.log(2);
+                    double logQ = ( Math.log(q) /Math.log(2) );
+                    double total = -( k / logQ ) ;
+                   if(!Double.isNaN(total))
+                    result.setText("Credit will expire in: " + (int)Math.ceil(total) + " months");
+                    else
+                       result.setText("Enter higher monthly installment");
 
                 } else if (checkRadioBtn4) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
                     //Enter valid formula here
-                    result.setText("Year procent: " + credit2 / credit1 + "%" + "\n" +
-                            "All paid sum:" + credit1 + " lv." + "\n" + "Year procent: " + credit3 + "%");
+                    result.setText("Monthly percent: " + credit2 / credit1 + "%" + "\n" +
+                            "All paid sum:" + credit1 + " lv." + "\n" + "Monthly percent: " + credit3 + "%");
 
                 }
 

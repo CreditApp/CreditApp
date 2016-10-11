@@ -22,11 +22,12 @@
         Sed in magna eros. Etiam sed elit eget mauris tristique accumsan. Sed suscipit nibh ante,
         id tincidunt purus gravida id. Cras ac vulputate eros. Nullam scelerisque augue id porttitor bibendum.
         Integer aliquam ornare dui..</string>
+
     <string name="credit_information">Credit information</string>
-    <string name="what_u_want_to_calculate">What u want to calculate?</string>
-    <string name="parameters_credit">Parameters of credit:</string>
+    <string name="what_u_want_to_calculate">What do you want to calculate?</string>
+    <string name="parameters_credit">Parameters of the credit:</string>
     <string name="what_is_the_amount_of_annual_interest">What is the amount of annual interest?</string>
-    <string name="how_long_will_back_the_loan">How long will back the loan?</string>
+    <string name="how_long_will_back_the_loan">For how long will I pay the loan?</string>
     <string name="what_is_the_maximum_amount_i_can_withdraw">What is the maximum amount I can withdraw?</string>
     <string name="how_much_is_the_monthly_installment">How much is the monthly installment?</string>
     <string name="lv">lv.</string>
