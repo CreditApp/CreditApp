@@ -9,7 +9,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,47 +89,50 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/callIcon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:background="@null"
+                android:padding="15dp"
+                app:srcCompat="@drawable/phone" />
 
-                <ImageButton
-                    android:id="@+id/callIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:padding="15dp"
-                    app:srcCompat="@drawable/phone" />
+            <ImageButton
+                android:id="@+id/messageIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="15dp"
+                app:srcCompat="@drawable/message" />
 
-                <ImageButton
-                    android:id="@+id/messageIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:padding="15dp"
-                    app:srcCompat="@drawable/message" />
+            <ImageButton
+                android:id="@+id/facebookIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="15dp"
+                app:srcCompat="@drawable/web" />
 
-                <ImageButton
-                    android:id="@+id/facebookIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:padding="15dp"
-                    app:srcCompat="@drawable/web" />
+            <ImageButton
+                android:id="@+id/mailIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="15dp"
+                app:srcCompat="@drawable/email" />
 
-                <ImageButton
-                    android:id="@+id/mailIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:padding="15dp"
-                    app:srcCompat="@drawable/email" />
-
-            </LinearLayout>
-
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
