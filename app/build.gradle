@@ -29,5 +29,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile 'com.android.support:cardview-v7:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
+	compile 'com.github.florent37:materialtextfield:1.0.5'
+	compile 'com.wrapp.floatlabelededittext:library:0.0.6'
     testCompile 'junit:junit:4.12'
 }

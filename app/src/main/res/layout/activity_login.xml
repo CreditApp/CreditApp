@@ -10,6 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="com.example.android.itcreditonline.LoginActivity">
 
     <ScrollView
@@ -18,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -28,54 +29,62 @@
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/logo" />
 
-            <EditText
-                android:id="@+id/username_et"
+
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Username"
-                android:layout_marginTop="50dp"
-                android:inputType="textPersonName"
-                android:text="" />
+                app:mtf_image="@drawable/icon_username"
+                app:mtf_labelColor="#700">
 
-            <EditText
-                android:id="@+id/password_et"
+                <EditText
+                    android:id="@+id/username_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/username"
+                    android:textColor="@color/black"
+                    android:textColorHint="#700"
+                    android:textSize="15sp" />
+
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Password"
-                android:inputType="textPassword" />
+                app:mtf_image="@drawable/icon_password"
+                app:mtf_labelColor="#700">
 
-            <Button
-                android:id="@+id/button_login"
-                android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/password_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="24dp"
                 android:background="@color/colorPrimary"
-                android:text="Login"
+                android:padding="12dp"
+                android:text="@string/login"
                 android:textColor="@color/white" />
 
-            <Button
-                android:id="@+id/button_regiter"
-                android:layout_width="match_parent"
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/register_btn"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp"
                 android:background="@color/colorPrimary"
-                android:text="Register"
-                android:textColor="@color/white" />
-
-
-            <Button
-                android:id="@+id/button_login_facebook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:text="Facebook Login"
+                android:text="@string/register"
                 android:textColor="@color/white" />
 
         </LinearLayout>

@@ -27,8 +27,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
                     android:gravity="center"
-                    android:text="Apply for credit"
+                    android:text="@string/apply_for_credit"
                     android:textSize="30sp"
+                    android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -40,6 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:gravity="bottom|center"
                         android:text="Sum: "
                         android:textSize="20sp"
@@ -52,6 +54,7 @@
                         android:layout_weight="1"
                         android:gravity="bottom"
                         android:text="100"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -60,6 +63,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="bottom"
+                        android:textColor="@color/black"
                         android:text="@string/lv"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -85,7 +89,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="bottom|center"
-                        android:text="Duration: "
+                        android:text="@string/duration"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -96,6 +101,7 @@
                         android:layout_weight="1"
                         android:gravity="bottom"
                         android:text="1"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -105,6 +111,7 @@
                         android:layout_weight="1"
                         android:gravity="bottom"
                         android:text="@string/month"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -130,7 +137,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Total sum for return:" />
+                    android:textColor="@color/black"
+                    android:text="@string/total_sum_for_return" />
 
                 <TextView
                     android:id="@+id/total_sum"
@@ -138,6 +146,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textColor="@color/black"
                     android:text="0 lv." />
             </LinearLayout>
 
@@ -148,7 +157,7 @@
                 android:layout_margin="5dp"
                 android:background="@color/colorPrimary"
                 android:paddingBottom="10dp"
-                android:text="Apply"
+                android:text="@string/apply"
                 android:textColor="@color/white" />
         </LinearLayout>
     </ScrollView>

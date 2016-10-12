@@ -186,11 +186,11 @@
                         android:id="@+id/button_clean"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:textColor="@color/white"
-                        android:layout_marginRight="5dp"
-                        android:text="@string/clean" />
+                        android:text="@string/clean"
+                        android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/button_calculate"
@@ -198,8 +198,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:textColor="@color/white"
-                        android:text="@string/calculate" />
+                        android:text="@string/calculate"
+                        android:textColor="@color/white" />
 
 
                 </LinearLayout>
@@ -228,6 +228,7 @@
                         android:layout_weight="3"
                         android:textSize="18sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

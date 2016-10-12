@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".User.RegisterActivity">
+    tools:context="RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,103 +17,172 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/imageView"
-                android:src="@drawable/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:layout_gravity="center" />
+                android:src="@drawable/logo" />
 
-            <EditText
-                android:id="@+id/usernameAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/username_reg"
-                android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/nameAdd"
-                android:layout_width="wrap_content"
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/name_reg"
-                android:inputType="textPersonName" />
-            <EditText
-                android:id="@+id/surNameAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/surName_reg"
-                android:inputType="textPersonName" />
+                float:fletPadding="10dp">
 
-            <EditText
-                android:id="@+id/passwordAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/password_reg"
-                android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/repeatPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/password_again_reg"
-                android:inputType="textPassword" />
+                <EditText
+                    android:id="@+id/usernameAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/username_reg"
+                    android:inputType="textPersonName" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/email_reg"
-                android:inputType="textEmailAddress" />
+                float:fletPadding="10dp">
 
-            <EditText
-                android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/address_reg"
-                android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/namePhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/phone_number_reg"
-                android:inputType="number|textShortMessage" />
+                <EditText
+                    android:id="@+id/nameAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/name_reg"
+                    android:inputType="textPersonName" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-            <EditText
-                android:id="@+id/id_et"
-                android:layout_width="wrap_content"
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/id_et"
-                android:inputType="number|textShortMessage" />
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/surNameAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/surName_reg"
+                    android:inputType="textPersonName" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/passwordAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/password_reg"
+                    android:inputType="textPassword" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/repeatPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/password_again_reg"
+                    android:inputType="textPassword" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/email_reg"
+                    android:inputType="textEmailAddress" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/address_reg"
+                    android:inputType="textPersonName" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/namePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/phone_number_reg"
+                    android:inputType="number|textShortMessage" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                float:fletPadding="10dp">
+
+                <EditText
+                    android:id="@+id/id_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="@string/id_et"
+                    android:inputType="number|textShortMessage" />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
 
             <Button
                 android:id="@+id/btn_registerAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/register_reg"
                 android:background="@color/colorPrimary"
+                android:text="@string/register_reg"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>

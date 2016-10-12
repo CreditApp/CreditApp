@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.android.itcreditonline.Model.Database.DBManager;
 import static com.example.android.itcreditonline.RegisterActivity.REG_SUCCCSSFULLY;
@@ -33,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
-        loginButton = (Button) findViewById(R.id.button_login);
-        registerButton = (Button) findViewById(R.id.button_regiter);
+        loginButton = (Button) findViewById(R.id.btn_login);
+        registerButton = (Button) findViewById(R.id.register_btn);
         usernameET = (EditText) findViewById(R.id.username_et);
         passwordET = (EditText) findViewById(R.id.password_et);
 
