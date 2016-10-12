@@ -224,7 +224,7 @@ public class ProfileFragment extends Fragment {
                     phoneNumberET.setVisibility(View.GONE);
                     changePhoneBTN.setVisibility(View.VISIBLE);
                     confirmPhoneBTN.setVisibility(View.GONE);
-                    DBManager.getInstance(activity).changeAdress(username, phoneNumberET.getText().toString());
+                    DBManager.getInstance(activity).changePhone(username, phoneNumberET.getText().toString());
 
                 }
             });
