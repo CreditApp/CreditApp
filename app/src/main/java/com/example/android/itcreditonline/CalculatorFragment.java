@@ -185,8 +185,18 @@ public class CalculatorFragment extends Fragment {
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
                     //Enter valid formula here
-                    result.setText("Monthly percent: " + credit2 / credit1 + "%" + "\n" +
-                            "All paid sum:" + credit1 + " lv." + "\n" + "Monthly percent: " + credit3 + "%");
+                    double toPay = credit2*credit3;
+                    boolean data = true;
+                    if(toPay < credit1)
+                        data = false;
+                    double interest = 100*(Math.pow(toPay/credit1,1/credit2) - 1);
+                    if(data) {
+                        result.setText("Monthly percent: " + new DecimalFormat("##.##").format(interest) + "%" + "\n" +
+                                "All paid sum:" + credit2*credit3 + " lv.");
+                    }else{
+                        result.setText("Paid sum is less than withdrawn sum.");
+                    }
+
 
                 }
 
