@@ -151,7 +151,7 @@ public class CalculatorFragment extends Fragment {
                     double total = credit1 * Math.pow(1 + (credit3 / 100), credit2);
                     double perMonth = total / credit2;
 
-                    result.setText("Monthly: " + new DecimalFormat("##.##").format(perMonth) + " month." + "\n" +
+                    result.setText("Monthly: " + new DecimalFormat("##.##").format(perMonth) + " lv." + "\n" +
                             "All paid sum:" + new DecimalFormat("##.##").format(total) + " lv." + "\n" + "Monthly percent: " + new DecimalFormat("##.##").format(credit3) + "%");
 
                 } else if (checkRadioBtn2) {
@@ -162,8 +162,11 @@ public class CalculatorFragment extends Fragment {
                     double q = 1 + credit3 / 100;
                     double total = (credit1 * (Math.pow(q, credit2) - 1)) / (Math.pow(q, credit2) * (q - 1));
                     double toPay = credit1 * credit2;
-                    result.setText("Maximum amount of credit: " + Math.ceil(total) + "lv." + "\n" +
-                            "All paid sum:" + (int)toPay + "lv." + "\n" + "Monthly percent: " + credit3 + "%");
+                    if (!Double.isNaN(total))
+                        result.setText("Maximum amount of credit: " + new DecimalFormat("##.##").format(total) + "lv." + "\n" +
+                                "All paid sum:" + (int) toPay + "lv." + "\n" + "Monthly percent: " + credit3 + "%");
+                    else
+                        result.setText("Maximum amount of credit is too high to display");
 
                 } else if (checkRadioBtn3) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
@@ -172,28 +175,28 @@ public class CalculatorFragment extends Fragment {
 
                     double q = 1 + credit3 / 100;
                     double a = (credit1 * (q - 1)) / credit2;
-                    double k =  Math.log(1 -  a )/ Math.log(2);
-                    double logQ = ( Math.log(q) /Math.log(2) );
-                    double total = -( k / logQ ) ;
-                   if(!Double.isNaN(total))
-                    result.setText("Credit will expire in: " + (int)Math.ceil(total) + " months");
+                    double k = Math.log(1 - a) / Math.log(2);
+                    double logQ = (Math.log(q) / Math.log(2));
+                    double total = -(k / logQ);
+                    if (!Double.isNaN(total))
+                        result.setText("Credit will expire in: " + (int) Math.ceil(total) + " months");
                     else
-                       result.setText("Enter higher monthly installment");
+                        result.setText("Enter higher monthly installment");
 
                 } else if (checkRadioBtn4) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
                     //Enter valid formula here
-                    double toPay = credit2*credit3;
+                    double toPay = credit2 * credit3;
                     boolean data = true;
-                    if(toPay < credit1)
+                    if (toPay < credit1)
                         data = false;
-                    double interest = 100*(Math.pow(toPay/credit1,1/credit2) - 1);
-                    if(data) {
+                    double interest = 100 * (Math.pow(toPay / credit1, 1 / credit2) - 1);
+                    if (data) {
                         result.setText("Monthly percent: " + new DecimalFormat("##.##").format(interest) + "%" + "\n" +
-                                "All paid sum:" + credit2*credit3 + " lv.");
-                    }else{
+                                "All paid sum:" + credit2 * credit3 + " lv.");
+                    } else {
                         result.setText("Paid sum is less than withdrawn sum.");
                     }
 

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.calculator_gray,
             R.drawable.handshake,
             R.drawable.about_gray,
-            R.drawable.map_gray
+         //   R.drawable.map_gray
     };
 
     @Override
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         int tabIconColor = ContextCompat.getColor(MainActivity.this, R.color.tabSelectedIconColor);
         TabLayout.Tab tab = tabLayout.getTabAt(0);
         tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
-        
+
         super.onBackPressed();
     }
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new CalculatorFragment(), "Calculator");
         adapter.addFrag(new ApplyFragment(), "Apply");
         adapter.addFrag(new AboutFragment(), "About");
-        adapter.addFrag(new ProfileFragment(), "Map");
+       // adapter.addFrag(new ProfileFragment(), "Map");
         viewPager.setAdapter(adapter);
     }
 

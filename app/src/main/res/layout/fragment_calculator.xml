@@ -106,6 +106,7 @@
                     <EditText
                         android:id="@+id/credit_1_et"
                         android:layout_width="0dp"
+                        android:maxLength="9"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
@@ -136,6 +137,7 @@
                     <EditText
                         android:id="@+id/credit_2_et"
                         android:layout_width="0dp"
+                        android:maxLength="9"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
@@ -166,6 +168,7 @@
                     <EditText
                         android:id="@+id/credit_3_et"
                         android:layout_width="0dp"
+                        android:maxLength="9"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
