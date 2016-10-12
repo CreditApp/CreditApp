@@ -7,8 +7,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:fillViewport="true">
 
         <LinearLayout
@@ -34,22 +33,30 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:textColor="@color/black"
                     android:text="@string/username_info"
-                    android:textSize="22sp"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/user_username"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_weight="2"
                     android:textColor="@color/black"
-                    android:gravity="center|left"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textSize="22sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -63,8 +70,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/name_info"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -72,34 +80,78 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center|left"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.07">
+                android:layout_weight="0.06">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/surname"
+                    android:text="@string/surname_reg_form"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/user_surname"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center|left"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/user_surname_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:inputType="textShortMessage"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="CHANGE"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_change_surname"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="OK"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_confirm_surname"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
@@ -114,7 +166,8 @@
                     android:layout_weight="1"
                     android:text="@string/address_info"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="19sp"
+                    android:layout_gravity="center"
                     android:textStyle="bold" />
 
                 <TextView
@@ -122,23 +175,55 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="left"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/user_address_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:inputType="textShortMessage"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="CHANGE"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_change_address"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="OK"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_confirm_address"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.06">
+                android:layout_weight="0.05">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/email_info"
-                    android:textSize="22sp"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -148,23 +233,55 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:textColor="@color/black"
-                    android:gravity="center|left"
-                    android:textSize="22sp" />
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"/>
+                <EditText
+                    android:id="@+id/user_email_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:inputType="textEmailAddress"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="CHANGE"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_change_email"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="OK"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_confirm_email"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.1">
+                android:layout_weight="0.07">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/phone_info"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -172,9 +289,40 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center|left"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/user_phone_et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="CHANGE"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_change_phone"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="OK"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_confirm_phone"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
@@ -188,8 +336,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/id"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -197,9 +346,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center|left"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
