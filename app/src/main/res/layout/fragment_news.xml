@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_vertical"
     tools:context="com.example.android.itcreditonline.NewsFragment">
 
     <TextView
@@ -12,7 +13,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:textColor="@color/tabUnselectedIconColor"
+        android:textColor="@color/colorPrimary"
         android:text="@string/no_internet_connection"/>
 
     <android.support.v7.widget.RecyclerView
