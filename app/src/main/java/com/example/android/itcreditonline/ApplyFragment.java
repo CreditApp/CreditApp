@@ -53,6 +53,7 @@ public class ApplyFragment extends Fragment {
         seekBarSum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress *= 10;
                 sumTV.setText(progress + 100 + "");
                 sum = progress + 100;
                 total = (progress + 100) * Math.pow(1.01,time);
