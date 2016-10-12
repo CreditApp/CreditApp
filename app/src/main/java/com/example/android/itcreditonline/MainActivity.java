@@ -44,6 +44,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        //set tabs to unselected color
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            int tabIconColor = ContextCompat.getColor(MainActivity.this, R.color.tabUnselectedIconColor);
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+        }
+
+        //set news tab to selected color
+        int tabIconColor = ContextCompat.getColor(MainActivity.this, R.color.tabSelectedIconColor);
+        TabLayout.Tab tab = tabLayout.getTabAt(0);
+        tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+        
+        super.onBackPressed();
+    }
+
     public void tab(){
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setupViewPager(viewPager);
