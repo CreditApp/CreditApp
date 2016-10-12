@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.itcreditonline.Model.Database.DBManager;
 import com.example.android.itcreditonline.Model.User;
@@ -151,7 +150,7 @@ public class ProfileFragment extends Fragment {
                     addressET.setVisibility(View.GONE);
                     changeAddressBTN.setVisibility(View.VISIBLE);
                     confirmAddressBTN.setVisibility(View.GONE);
-                    DBManager.getInstance(activity).changeAdress(username, addressET.getText().toString());
+                    DBManager.getInstance(activity).changeAddress(username, addressET.getText().toString());
 
                 }
             });

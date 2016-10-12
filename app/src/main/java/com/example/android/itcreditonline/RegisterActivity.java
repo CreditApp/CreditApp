@@ -100,7 +100,6 @@ public class RegisterActivity extends AppCompatActivity {
                     phone.requestFocus();
                     return;
                 }
-                
                 if(id.getText().toString().length()!=10){
                     id.setError("Please enter valid id");
                     id.requestFocus();
