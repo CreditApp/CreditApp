@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.itcreditonline.CreditsFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/noCredits"
+        android:text="@string/no_credits_added"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:textColor="@color/cardview_dark_background"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/creditsRecyclerView"
         android:layout_width="match_parent"

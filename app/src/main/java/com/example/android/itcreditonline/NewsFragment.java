@@ -20,8 +20,6 @@ import java.util.ArrayList;
 public class NewsFragment extends Fragment {
     private Activity activity;
     private RecyclerView newsRV;
-    //private ArrayList<FeedItem> feedItems;
-    //private NewsAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,14 +28,9 @@ public class NewsFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_news, container, false);
 
         newsRV = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
-       //newsRV.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         ReadRss rss = new ReadRss(activity,newsRV);
         rss.execute();
-
-       // feedItems = rss.getFeedsItems();
-       // adapter = new NewsAdapter(feedItems,activity);
-       // newsRV.setAdapter(adapter);
-
         return view;
     }
 
