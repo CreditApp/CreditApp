@@ -52,6 +52,7 @@
     <string name="apply">Apply</string>
     <string name="no_credits_added">No Credits Added</string>
     <string name="no_internet_connection">No internet Connection</string>
+	<string name="surname_reg_form">Surname:</string>
 
 
 </resources>

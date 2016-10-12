@@ -100,6 +100,11 @@ public class RegisterActivity extends AppCompatActivity {
                     phone.requestFocus();
                     return;
                 }
+                if(id.getText().toString().length()!=10){
+                    id.setError("Please enter valid id");
+                    id.requestFocus();
+                    return;
+                }
 
                 DBManager.getInstance(RegisterActivity.this).registerUser(username.getText().toString(), name.getText().toString(),surName.getText().toString(), password.getText().toString(), email.getText().toString(), phone.getText().toString(),address.getText().toString(), id.getText().toString());
                 Intent intent = new Intent();
