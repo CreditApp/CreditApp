@@ -51,6 +51,7 @@
     <string name="total_sum_for_return">Total sum for return:</string>
     <string name="apply">Apply</string>
     <string name="no_credits_added">No Credits Added</string>
+    <string name="no_internet_connection">No internet Connection</string>
 
 
 </resources>
