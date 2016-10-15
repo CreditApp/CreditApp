@@ -128,7 +128,9 @@ public class ProfileFragment extends Fragment {
                     changeSurnameBTN.setVisibility(View.VISIBLE);
                     confirmSurnameBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changeSurname(username, surnameET.getText().toString());
-                    if (!checkChangeSurname || !checkChangeAddress || !checkChangeEmail || !checkChangePhone) {
+                    if (checkChangeAddress || checkChangeEmail || checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.VISIBLE);
+                    } else {
                         cancelEditBtn.setVisibility(View.GONE);
                     }
                     checkChangeSurname = false;
@@ -165,7 +167,9 @@ public class ProfileFragment extends Fragment {
                     changeAddressBTN.setVisibility(View.VISIBLE);
                     confirmAddressBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changeAddress(username, addressET.getText().toString());
-                    if (!checkChangeAddress || !checkChangeEmail || !checkChangeSurname || !checkChangePhone) {
+                    if (checkChangeEmail || checkChangeSurname || checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.VISIBLE);
+                    } else {
                         cancelEditBtn.setVisibility(View.GONE);
                     }
                     checkChangeAddress = false;
@@ -207,7 +211,9 @@ public class ProfileFragment extends Fragment {
                     changeEmailBTN.setVisibility(View.VISIBLE);
                     confirmEmailBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changeEmail(username, emailET.getText().toString());
-                    if (!checkChangeEmail || !checkChangeAddress || !checkChangeSurname || !checkChangePhone) {
+                    if (checkChangeAddress || checkChangeSurname || checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.VISIBLE);
+                    } else {
                         cancelEditBtn.setVisibility(View.GONE);
                     }
                     checkChangeEmail = false;
@@ -250,10 +256,13 @@ public class ProfileFragment extends Fragment {
                     changePhoneBTN.setVisibility(View.VISIBLE);
                     confirmPhoneBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changePhone(username, phoneNumberET.getText().toString());
-                    if (!checkChangeAddress || !checkChangeSurname || !checkChangeEmail || !checkChangePhone) {
+                    if (checkChangeAddress || checkChangeSurname || checkChangeEmail) {
+                        cancelEditBtn.setVisibility(View.VISIBLE);
+                    } else {
                         cancelEditBtn.setVisibility(View.GONE);
                     }
                     checkChangePhone = false;
+
 
                 }
             });
