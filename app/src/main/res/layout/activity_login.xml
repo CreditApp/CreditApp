@@ -29,6 +29,16 @@
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/logo" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/it_credit_online"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/colorPrimary"/>
+
 
             <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"

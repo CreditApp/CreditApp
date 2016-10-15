@@ -130,7 +130,6 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
 
-
     public static boolean isValidEmail(String email) {
         if (TextUtils.isEmpty(email)) {
             return false;
@@ -150,29 +149,31 @@ public class DBManager extends SQLiteOpenHelper {
         return false;
     }
 
-    public void changeSurname(String username,String surname){
+    public void changeSurname(String username, String surname) {
         ContentValues newValues = new ContentValues();
         newValues.put("USERS_SURNAME", surname);
-        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='"+username+"'", null);
+        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='" + username + "'", null);
         getUser(username).setSurname(surname);
     }
 
-    public void changeEmail(String username,String email){
+    public void changeEmail(String username, String email) {
         ContentValues newValues = new ContentValues();
         newValues.put("USERS_EMAIL", email);
-        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='"+username+"'", null);
+        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='" + username + "'", null);
         getUser(username).setEmail(email);
     }
-    public void changePhone(String username,String phone){
+
+    public void changePhone(String username, String phone) {
         ContentValues newValues = new ContentValues();
         newValues.put("USERS_PHONE_NUMBER", phone);
-        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='"+username+"'", null);
+        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='" + username + "'", null);
         getUser(username).setPhoneNumber(phone);
     }
-    public void changeAddress(String username, String address){
+
+    public void changeAddress(String username, String address) {
         ContentValues newValues = new ContentValues();
         newValues.put("USERS_ADDRESS", address);
-        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='"+username+"'", null);
+        getWritableDatabase().update("TABLE_USERS", newValues, "USERS_USERNAME='" + username + "'", null);
         getUser(username).setAddress(address);
     }
 

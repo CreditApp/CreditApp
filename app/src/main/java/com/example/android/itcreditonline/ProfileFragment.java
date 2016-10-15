@@ -39,10 +39,15 @@ public class ProfileFragment extends Fragment {
     private Button changeEmailBTN;
     private Button changePhoneBTN;
     private Button changeAddressBTN;
-    private Button confirnSurnameBTN;
+    private Button confirmSurnameBTN;
     private Button confirmEmailBTN;
     private Button confirmPhoneBTN;
     private Button confirmAddressBTN;
+    private Button cancelEditBtn;
+    private boolean checkChangeAddress;
+    private boolean checkChangeSurname;
+    private boolean checkChangePhone;
+    private boolean checkChangeEmail;
 
     @Override
     public void onAttach(Context activity) {
@@ -56,23 +61,24 @@ public class ProfileFragment extends Fragment {
         View root = inflater.inflate(R.layout.profile_fragment_view, parent, false);
         usernameTV = (TextView) root.findViewById(R.id.user_username);
         nameTV = (TextView) root.findViewById(R.id.user_name);
-        surnameTV=(TextView) root.findViewById(R.id.user_surname);
+        surnameTV = (TextView) root.findViewById(R.id.user_surname);
         addressTV = (TextView) root.findViewById(R.id.user_address);
         emailTV = (TextView) root.findViewById(R.id.user_email);
         phoneTV = (TextView) root.findViewById(R.id.user_phone);
         idTV = (TextView) root.findViewById(R.id.user_id);
         surnameET = (EditText) root.findViewById(R.id.user_surname_et);
         emailET = (EditText) root.findViewById(R.id.user_email_et);
-        addressET = (EditText)root.findViewById(R.id.user_address_et);
-        phoneNumberET = (EditText)root.findViewById(R.id.user_phone_et);
+        addressET = (EditText) root.findViewById(R.id.user_address_et);
+        phoneNumberET = (EditText) root.findViewById(R.id.user_phone_et);
         changeSurnameBTN = (Button) root.findViewById(R.id.btn_change_surname);
-        confirnSurnameBTN = (Button) root.findViewById(R.id.btn_confirm_surname);
+        confirmSurnameBTN = (Button) root.findViewById(R.id.btn_confirm_surname);
         changeAddressBTN = (Button) root.findViewById(R.id.btn_change_address);
         confirmAddressBTN = (Button) root.findViewById(R.id.btn_confirm_address);
         changeEmailBTN = (Button) root.findViewById(R.id.btn_change_email);
         confirmEmailBTN = (Button) root.findViewById(R.id.btn_confirm_email);
         changePhoneBTN = (Button) root.findViewById(R.id.btn_change_phone);
         confirmPhoneBTN = (Button) root.findViewById(R.id.btn_confirm_phone);
+        cancelEditBtn = (Button) root.findViewById(R.id.cancel_edit_btn);
         username = activity.getIntent().getStringExtra("loggedUser");
         final User u = DBManager.getInstance(activity).getUser(username);
         usernameTV.setText(u.getUsername());
@@ -87,13 +93,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DBManager.getInstance(activity).logout();
-                Intent intent = new Intent(activity,LoginActivity.class);
+                Intent intent = new Intent(activity, LoginActivity.class);
                 startActivity(intent);
                 activity.finish();
             }
         });
 
-        if(changeSurnameBTN !=null) {
+        if (changeSurnameBTN != null) {
             changeSurnameBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -102,29 +108,35 @@ public class ProfileFragment extends Fragment {
                     surnameET.setVisibility(View.VISIBLE);
                     surnameET.requestFocus();
                     changeSurnameBTN.setVisibility(View.GONE);
-                    confirnSurnameBTN.setVisibility(View.VISIBLE);
+                    confirmSurnameBTN.setVisibility(View.VISIBLE);
+                    cancelEditBtn.setVisibility(View.VISIBLE);
+                    checkChangeSurname = true;
                 }
             });
         }
-    if(confirnSurnameBTN!=null) {
-        confirnSurnameBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (surnameET.getText().toString().isEmpty()) {
-                    surnameET.setError("Please enter your new surname");
-                    return;
-                }
-                surnameTV.setVisibility(View.VISIBLE);
-                surnameTV.setText(surnameET.getText().toString());
-                surnameET.setVisibility(View.GONE);
-                changeSurnameBTN.setVisibility(View.VISIBLE);
-                confirnSurnameBTN.setVisibility(View.GONE);
-                DBManager.getInstance(activity).changeSurname(username, surnameET.getText().toString());
+        if (confirmSurnameBTN != null) {
+            confirmSurnameBTN.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (surnameET.getText().toString().isEmpty()) {
+                        surnameET.setError("Please enter your new surname");
+                        return;
+                    }
+                    surnameTV.setVisibility(View.VISIBLE);
+                    surnameTV.setText(surnameET.getText().toString());
+                    surnameET.setVisibility(View.GONE);
+                    changeSurnameBTN.setVisibility(View.VISIBLE);
+                    confirmSurnameBTN.setVisibility(View.GONE);
+                    DBManager.getInstance(activity).changeSurname(username, surnameET.getText().toString());
+                    if (!checkChangeSurname || !checkChangeAddress || !checkChangeEmail || !checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.GONE);
+                    }
+                    checkChangeSurname = false;
 
-            }
-        });
-    }
-        if(changeAddressBTN !=null) {
+                }
+            });
+        }
+        if (changeAddressBTN != null) {
             changeAddressBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -134,10 +146,12 @@ public class ProfileFragment extends Fragment {
                     addressET.requestFocus();
                     changeAddressBTN.setVisibility(View.GONE);
                     confirmAddressBTN.setVisibility(View.VISIBLE);
+                    cancelEditBtn.setVisibility(View.VISIBLE);
+                    checkChangeAddress = true;
                 }
             });
         }
-        if(confirmAddressBTN!=null) {
+        if (confirmAddressBTN != null) {
             confirmAddressBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -151,11 +165,15 @@ public class ProfileFragment extends Fragment {
                     changeAddressBTN.setVisibility(View.VISIBLE);
                     confirmAddressBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changeAddress(username, addressET.getText().toString());
+                    if (!checkChangeAddress || !checkChangeEmail || !checkChangeSurname || !checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.GONE);
+                    }
+                    checkChangeAddress = false;
 
                 }
             });
         }
-        if(changeEmailBTN !=null) {
+        if (changeEmailBTN != null) {
             changeEmailBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -165,10 +183,12 @@ public class ProfileFragment extends Fragment {
                     emailET.requestFocus();
                     changeEmailBTN.setVisibility(View.GONE);
                     confirmEmailBTN.setVisibility(View.VISIBLE);
+                    cancelEditBtn.setVisibility(View.VISIBLE);
+                    checkChangeEmail = true;
                 }
             });
         }
-        if(confirmEmailBTN!=null) {
+        if (confirmEmailBTN != null) {
             confirmEmailBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -187,12 +207,16 @@ public class ProfileFragment extends Fragment {
                     changeEmailBTN.setVisibility(View.VISIBLE);
                     confirmEmailBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changeEmail(username, emailET.getText().toString());
+                    if (!checkChangeEmail || !checkChangeAddress || !checkChangeSurname || !checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.GONE);
+                    }
+                    checkChangeEmail = false;
 
                 }
             });
         }
 
-        if(changePhoneBTN !=null) {
+        if (changePhoneBTN != null) {
             changePhoneBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -202,10 +226,12 @@ public class ProfileFragment extends Fragment {
                     phoneNumberET.requestFocus();
                     changePhoneBTN.setVisibility(View.GONE);
                     confirmPhoneBTN.setVisibility(View.VISIBLE);
+                    cancelEditBtn.setVisibility(View.VISIBLE);
+                    checkChangePhone = true;
                 }
             });
         }
-        if(confirmPhoneBTN!=null) {
+        if (confirmPhoneBTN != null) {
             confirmPhoneBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -213,7 +239,7 @@ public class ProfileFragment extends Fragment {
                         phoneNumberET.setError("Please enter your new phone number");
                         return;
                     }
-                    if(!DBManager.validatePhone(phoneNumberET.getText().toString())){
+                    if (!DBManager.validatePhone(phoneNumberET.getText().toString())) {
                         phoneNumberET.setError("Please enter a valid phone number");
                         phoneNumberET.requestFocus();
                         return;
@@ -224,10 +250,53 @@ public class ProfileFragment extends Fragment {
                     changePhoneBTN.setVisibility(View.VISIBLE);
                     confirmPhoneBTN.setVisibility(View.GONE);
                     DBManager.getInstance(activity).changePhone(username, phoneNumberET.getText().toString());
+                    if (!checkChangeAddress || !checkChangeSurname || !checkChangeEmail || !checkChangePhone) {
+                        cancelEditBtn.setVisibility(View.GONE);
+                    }
+                    checkChangePhone = false;
 
                 }
             });
         }
+
+        cancelEditBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkChangeAddress) {
+                    addressTV.setText(u.getAddress());
+                    addressTV.setVisibility(View.VISIBLE);
+                    changeAddressBTN.setVisibility(View.VISIBLE);
+                    addressET.setVisibility(View.GONE);
+                    confirmAddressBTN.setVisibility(View.GONE);
+                    cancelEditBtn.setVisibility(View.GONE);
+                }
+                if (checkChangeEmail) {
+                    emailTV.setText(u.getEmail());
+                    emailET.setVisibility(View.GONE);
+                    emailTV.setVisibility(View.VISIBLE);
+                    changeEmailBTN.setVisibility(View.VISIBLE);
+                    confirmEmailBTN.setVisibility(View.GONE);
+                    cancelEditBtn.setVisibility(View.GONE);
+                }
+                if (checkChangePhone) {
+                    phoneTV.setText(u.getPhoneNumber());
+                    phoneNumberET.setVisibility(View.GONE);
+                    phoneTV.setVisibility(View.VISIBLE);
+                    changePhoneBTN.setVisibility(View.VISIBLE);
+                    confirmPhoneBTN.setVisibility(View.GONE);
+                    cancelEditBtn.setVisibility(View.GONE);
+                }
+                if (checkChangeSurname) {
+                    surnameTV.setText(u.getSurname());
+                    surnameET.setVisibility(View.GONE);
+                    changeSurnameBTN.setVisibility(View.VISIBLE);
+                    surnameTV.setVisibility(View.VISIBLE);
+                    confirmSurnameBTN.setVisibility(View.GONE);
+                    cancelEditBtn.setVisibility(View.GONE);
+                }
+            }
+        });
+
         return root;
 
     }
