@@ -26,13 +26,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * Created by Simeon Angelov on 30.9.2016 г..
  */
 
-public class ReadRss extends AsyncTask<Void,Void,Void> {
-    ArrayList<FeedItem> feedsItems;
+public class ReadRss extends AsyncTask<Void, Void, Void> {
+    private ArrayList<FeedItem> feedsItems;
     private Context context;
     private String address = "http://www.ft.com/rss/companies/banks";
     private ProgressDialog progressDialog;
     private URL url;
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     public ReadRss(Context context, RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
@@ -45,7 +45,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
         return feedsItems;
     }
 
-    public Document getData(){
+    public Document getData() {
         try {
             url = new URL(address);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -53,8 +53,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
             InputStream inputStream = connection.getInputStream();
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
-            Document xmlDoc = builder.parse(inputStream);
-            return xmlDoc;
+            return builder.parse(inputStream);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -71,7 +70,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         progressDialog.dismiss();
-        NewsAdapter adapter = new NewsAdapter(feedsItems,context);
+        NewsAdapter adapter = new NewsAdapter(feedsItems, context);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
     }
@@ -83,8 +82,8 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     }
 
     private void ProcessXml(Document data) {
-        if(data != null){
-           feedsItems = new ArrayList<>();
+        if (data != null) {
+            feedsItems = new ArrayList<>();
 
             //get channel element
             Element root = data.getDocumentElement();
@@ -94,20 +93,20 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
             NodeList items = channel.getChildNodes();
             for (int i = 0; i < items.getLength(); i++) {
                 Node currentChild = items.item(i);
-                if(currentChild.getNodeName().equalsIgnoreCase("item")){
+                if (currentChild.getNodeName().equalsIgnoreCase("item")) {
                     FeedItem item = new FeedItem();
                     NodeList itemChildren = currentChild.getChildNodes();
                     for (int j = 0; j < itemChildren.getLength(); j++) {
                         Node current = itemChildren.item(j);
-                        if(current.getNodeName().equalsIgnoreCase("title")){
+                        if (current.getNodeName().equalsIgnoreCase("title")) {
                             item.setTitle(current.getTextContent());
-                        }else if(current.getNodeName().equalsIgnoreCase("description")){
+                        } else if (current.getNodeName().equalsIgnoreCase("description")) {
                             item.setDescription(current.getTextContent());
-                        }else if(current.getNodeName().equalsIgnoreCase("pubDate")){
+                        } else if (current.getNodeName().equalsIgnoreCase("pubDate")) {
                             item.setPubDate(current.getTextContent() + "\r\n");
-                        }else if(current.getNodeName().equalsIgnoreCase("link")){
+                        } else if (current.getNodeName().equalsIgnoreCase("link")) {
                             item.setLink(current.getTextContent());
-                        }else if(current.getNodeName().equalsIgnoreCase("link")){
+                        } else if (current.getNodeName().equalsIgnoreCase("link")) {
                             item.setLink(current.getTextContent());
                         }
                     }

@@ -5,11 +5,11 @@ package com.example.android.itcreditonline.Model;
  */
 
 public class FeedItem {
-    String title;
-    String link;
-    String description;
-    String pubDate;
-    String thumbNailUrl;
+    private String title;
+    private String link;
+    private String description;
+    private String pubDate;
+    private String thumbNailUrl;
 
     public String getTitle() {
         return title;

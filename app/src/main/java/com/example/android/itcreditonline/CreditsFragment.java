@@ -41,9 +41,7 @@ public class CreditsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_credits, container, false);
-
         noCredits = (TextView) root.findViewById(R.id.noCredits);
-
         User u = DBManager.getInstance(activity).getUser(activity.getIntent().getStringExtra("loggedUser"));
         creditsAdapter = new CreditsAdapter(activity,u.getCredits());
         if(creditsAdapter.getItemCount() != 0){

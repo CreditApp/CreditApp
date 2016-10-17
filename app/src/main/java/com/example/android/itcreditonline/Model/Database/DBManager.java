@@ -46,11 +46,9 @@ public class DBManager extends SQLiteOpenHelper {
         if (registerredUsers.isEmpty()) {
             //select all users from db
             Cursor cursor = getWritableDatabase().rawQuery("SELECT * FROM TABLE_USERS", null);
-            String username = null;
-            User user = null;
             while (cursor.moveToNext()) {
 
-                username = cursor.getString(0);
+                String username = cursor.getString(0);
                 String name = cursor.getString(1);
                 String surname = cursor.getString(2);
                 String password = cursor.getString(3);
@@ -58,7 +56,7 @@ public class DBManager extends SQLiteOpenHelper {
                 String phoneNumber = cursor.getString(5);
                 String address = cursor.getString(6);
                 String id = cursor.getString(7);
-                user = new User(username, name, surname, password, email, phoneNumber, address, id);
+                User user = new User(username, name, surname, password, email, phoneNumber, address, id);
                 registerredUsers.put(username, user);
             }
             Cursor cursor2 = getWritableDatabase().rawQuery("SELECT * FROM TABLE_CREDITS ", null);
@@ -192,8 +190,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     public String getLastLoggedUser() {
         SharedPreferences prefs = activity.getSharedPreferences("ITCreditsOnline", Context.MODE_PRIVATE);
-        String loggedUser = prefs.getString("lastLoggedUser", "No logged user!");
-        return loggedUser;
+        return prefs.getString("lastLoggedUser", "No logged user!");
     }
 
     public void logout() {
