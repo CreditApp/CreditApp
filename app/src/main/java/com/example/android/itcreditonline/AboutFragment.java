@@ -17,10 +17,10 @@ import java.net.URI;
 public class AboutFragment extends Fragment {
 
     private Activity activity;
-    ImageButton call;
-    ImageButton message;
-    ImageButton mail;
-    ImageButton facebook;
+    private ImageButton call;
+    private ImageButton message;
+    private ImageButton mail;
+    private ImageButton facebook;
 
 
     @Override

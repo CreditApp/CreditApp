@@ -21,7 +21,7 @@ import com.example.android.itcreditonline.Model.Database.DBManager;
  * A simple {@link Fragment} subclass.
  */
 public class ApplyFragment extends Fragment {
-    Activity activity;
+    private Activity activity;
     private double total;
     private int time = 1;
     private int sum = 100;
