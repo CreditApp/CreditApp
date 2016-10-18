@@ -28,6 +28,16 @@
                 android:adjustViewBounds="true"
                 android:src="@drawable/logo" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_activity"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorPrimary"/>
+
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"

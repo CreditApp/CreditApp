@@ -53,6 +53,11 @@
     <string name="no_credits_added">No Credits Added</string>
     <string name="no_internet_connection">No internet Connection</string>
 	<string name="surname_reg_form">Surname:</string>
+    <string name="it_credit_online">IT CREDIT ONLINE</string>
+    <string name="register_activity">Register</string>
+    <string name="change">CHANGE</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
 
 
 </resources>
