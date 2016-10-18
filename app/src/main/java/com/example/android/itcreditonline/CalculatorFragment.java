@@ -148,7 +148,7 @@ public class CalculatorFragment extends Fragment {
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
 
-                    double total = credit1 * Math.pow(1 + (credit3 / 100), credit2);
+                    double total = credit1 * Math.pow(1 + (credit3 / 100), credit2/12);
                     double perMonth = total / credit2;
 
                     result.setText("Monthly: " + new DecimalFormat("##.##").format(perMonth) + " lv." + "\n" +
@@ -192,9 +192,9 @@ public class CalculatorFragment extends Fragment {
                     boolean data = true;
                     if (toPay < credit1)
                         data = false;
-                    double interest = 100 * (Math.pow(toPay / credit1, 1 / credit2) - 1);
+                    double interest = 100 * (Math.pow(toPay / credit1, 1 / (credit2/12)) - 1);
                     if (data) {
-                        result.setText("Monthly percent: " + new DecimalFormat("##.##").format(interest) + "%" + "\n" +
+                        result.setText("Year percent: " + new DecimalFormat("##.##").format(interest) + "%" + "\n" +
                                 "All paid sum:" + credit2 * credit3 + " lv.");
                     } else {
                         result.setText("Paid sum is less than withdrawn sum.");
