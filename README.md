@@ -7,4 +7,5 @@ IT Credit Online is an android application for credit calculations. It stores in
 <img src="https://github.com/CreditApp/CreditApp/blob/master/Profile.png" width="250">
 <img src="https://github.com/CreditApp/CreditApp/blob/master/CreditHistory.png" width="250">
 <img src="https://github.com/CreditApp/CreditApp/blob/master/Calculator.png" width="250">
+<img src="https://github.com/CreditApp/CreditApp/blob/master/ApplyCredit.png" width="250">
 <img src="https://github.com/CreditApp/CreditApp/blob/master/About.png" width="250">
