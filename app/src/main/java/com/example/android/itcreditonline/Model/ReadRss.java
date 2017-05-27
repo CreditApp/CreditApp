@@ -1,11 +1,9 @@
 package com.example.android.itcreditonline.Model;
 
-import android.app.ProgressDialog;
-import android.content.Context;
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.android.itcreditonline.NewsAdapter;
 
@@ -14,46 +12,52 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-/**
- * Created by Simeon Angelov on 30.9.2016 г..
- */
 
-public class ReadRss extends AsyncTask<Void, Void, Void> {
+public class ReadRss extends AsyncTask<String, Void, Void> {
     private ArrayList<FeedItem> feedsItems;
-    private Context context;
-    private String address = "http://www.ft.com/rss/companies/banks";
-    private ProgressDialog progressDialog;
+    private Activity context;
+
     private URL url;
     private RecyclerView recyclerView;
 
-    public ReadRss(Context context, RecyclerView recyclerView) {
+    public ReadRss(Activity context, RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
         this.context = context;
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading...");
+
     }
 
-    public ArrayList<FeedItem> getFeedsItems() {
-        return feedsItems;
-    }
 
-    public Document getData() {
+    public Document getData(String address) {
         try {
             url = new URL(address);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            InputStream inputStream = connection.getInputStream();
-            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = builderFactory.newDocumentBuilder();
-            return builder.parse(inputStream);
+            URLConnection con = url.openConnection();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    con.getInputStream()));
+
+            String inputLine;
+            String fullStr = "";
+            while ((inputLine = reader.readLine()) != null)
+                fullStr = fullStr.concat(inputLine + "\n");
+
+            InputStream istream = url.openStream();
+
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance()
+                    .newDocumentBuilder();
+
+            Document doc = builder.parse(istream);
+
+            return doc;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -62,29 +66,31 @@ public class ReadRss extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPreExecute() {
-        progressDialog.show();
+
         super.onPreExecute();
+
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        progressDialog.dismiss();
+
         NewsAdapter adapter = new NewsAdapter(feedsItems, context);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
-        ProcessXml(getData());
+    protected Void doInBackground(String... params) {
+        ProcessXml(getData(params[0]));
         return null;
+
     }
 
     private void ProcessXml(Document data) {
         if (data != null) {
             feedsItems = new ArrayList<>();
-
             //get channel element
             Element root = data.getDocumentElement();
             Node channel = root.getChildNodes().item(1);
@@ -103,18 +109,13 @@ public class ReadRss extends AsyncTask<Void, Void, Void> {
                         } else if (current.getNodeName().equalsIgnoreCase("description")) {
                             item.setDescription(current.getTextContent());
                         } else if (current.getNodeName().equalsIgnoreCase("pubDate")) {
-                            item.setPubDate(current.getTextContent() + "\r\n");
-                        } else if (current.getNodeName().equalsIgnoreCase("link")) {
-                            item.setLink(current.getTextContent());
+                            item.setPubDate(current.getTextContent());
                         } else if (current.getNodeName().equalsIgnoreCase("link")) {
                             item.setLink(current.getTextContent());
                         }
                     }
                     feedsItems.add(item);
-                    Log.d("itemTitle", item.getTitle());
-                    Log.d("itemDescription", item.getDescription());
-                    Log.d("itemLink", item.getLink());
-                    Log.d("itemPubDate", item.getPubDate());
+
                 }
             }
         }

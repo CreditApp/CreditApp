@@ -58,6 +58,16 @@
     <string name="change">CHANGE</string>
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
+    <string name="LoanAm">Loan amount:</string>
+    <string name="TermAmoan">Term of the loan in months:</string>
+    <string name="RateAnnual">Annual interest rate:</string>
+    <string name="MonthlyPay">Optimum monthly payment:</string>
+    <string name="ManyPay">How many months can I pay:</string>
+    <string name="MonthlyInstal">Amount of monthly installment:</string>
+    <string name="TermOfLoan">Term of the loan in months:</string>
+    <string name="LessThan">Paid sum is less than withdrawn sum.</string>
+    <string name="MaxAmmErr">Maximum amount of credit is too high to display</string>
+    <string name="HigherMsg">Enter higher monthly installment</string>
 
 
 </resources>

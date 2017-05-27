@@ -15,12 +15,9 @@ import com.example.android.itcreditonline.Model.FeedItem;
 
 import java.util.ArrayList;
 
-/**
- * Created by Simeon Angelov on 1.10.2016 г..
- */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
     private ArrayList<FeedItem> feedItems;
-    Context activity;
+    Activity activity;
 
     @Override
     public NewsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,7 +25,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
         return new MyViewHolder(row);
     }
 
-    public NewsAdapter(ArrayList<FeedItem> feedItems, Context activity) {
+    public NewsAdapter(ArrayList<FeedItem> feedItems, Activity activity) {
         this.feedItems = feedItems;
         this.activity = activity;
     }

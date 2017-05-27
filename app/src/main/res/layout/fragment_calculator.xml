@@ -106,12 +106,12 @@
                     <EditText
                         android:id="@+id/credit_1_et"
                         android:layout_width="0dp"
-                        android:maxLength="9"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:hint="Enter here"
                         android:inputType="numberDecimal"
+                        android:maxLength="9"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -137,12 +137,12 @@
                     <EditText
                         android:id="@+id/credit_2_et"
                         android:layout_width="0dp"
-                        android:maxLength="9"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:hint="Enter here"
                         android:inputType="numberDecimal"
+                        android:maxLength="9"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -168,12 +168,12 @@
                     <EditText
                         android:id="@+id/credit_3_et"
                         android:layout_width="0dp"
-                        android:maxLength="9"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:hint="Enter here"
                         android:inputType="numberDecimal"
+                        android:maxLength="9"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -208,37 +208,14 @@
                 </LinearLayout>
 
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/result_TV"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/result"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Result:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/result_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
 
             </LinearLayout>

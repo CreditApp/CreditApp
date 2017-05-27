@@ -35,8 +35,9 @@ public class NewsFragment extends Fragment {
         noInternet = (TextView) view.findViewById(R.id.noInternet);
 
         ReadRss rss = new ReadRss(activity, newsRV);
-        if (isNetworkAvailable()){
-            rss.execute();
+
+        if (isNetworkAvailable()) {
+           rss.execute("http://www.centralbanking.com/feeds/rss/category/risk-management");
             noInternet.setVisibility(View.GONE);
         }
 

@@ -3,8 +3,10 @@ package com.example.android.itcreditonline;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,16 @@ public class CalculatorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View row = inflater.inflate(R.layout.fragment_calculator, container, false);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Result");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                dialog.cancel();
+            }
+        });
 
         final TextView credit1TV = (TextView) row.findViewById(R.id.credit_1_tv);
         final TextView credit2TV = (TextView) row.findViewById(R.id.credit_2_tv);
@@ -59,9 +71,9 @@ public class CalculatorFragment extends Fragment {
 
                 switch (checkedId) {
                     case R.id.button_monthly_inst:
-                        credit1TV.setText("Loan amount: ");
-                        credit2TV.setText("Term of the loan in months:");
-                        credit3TV.setText("Annual interest rate:");
+                        credit1TV.setText(R.string.LoanAm);
+                        credit2TV.setText(R.string.TermAmoan);
+                        credit3TV.setText(R.string.RateAnnual);
                         credit1ET.setText("");
                         credit2ET.setText("");
                         credit3ET.setText("");
@@ -75,9 +87,9 @@ public class CalculatorFragment extends Fragment {
 
 
                     case R.id.button_max_amount:
-                        credit1TV.setText("Optimum monthly payment: ");
-                        credit2TV.setText("How many months can I pay:");
-                        credit3TV.setText("Annual interest rate:");
+                        credit1TV.setText(R.string.MonthlyPay);
+                        credit2TV.setText(R.string.ManyPay);
+                        credit3TV.setText(R.string.RateAnnual);
                         credit1ET.setText("");
                         credit2ET.setText("");
                         credit3ET.setText("");
@@ -90,9 +102,9 @@ public class CalculatorFragment extends Fragment {
                         break;
 
                     case R.id.button_credit_back:
-                        credit1TV.setText("Loan amount: ");
-                        credit2TV.setText("Amount of monthly installment:");
-                        credit3TV.setText("Annual interest rate:");
+                        credit1TV.setText(R.string.LoanAm);
+                        credit2TV.setText(R.string.MonthlyInstal);
+                        credit3TV.setText(R.string.RateAnnual);
                         credit1ET.setText("");
                         credit2ET.setText("");
                         credit3ET.setText("");
@@ -104,9 +116,9 @@ public class CalculatorFragment extends Fragment {
                         result.setText(" ");
                         break;
                     case R.id.button_annual_interest:
-                        credit1TV.setText("Loan amount: ");
-                        credit2TV.setText("Term of the loan in months:");
-                        credit3TV.setText("Amount of monthly installment:");
+                        credit1TV.setText(R.string.LoanAm);
+                        credit2TV.setText(R.string.TermOfLoan);
+                        credit3TV.setText(R.string.MonthlyInstal);
                         credit1ET.setText("");
                         credit2ET.setText("");
                         credit3ET.setText("");
@@ -148,12 +160,14 @@ public class CalculatorFragment extends Fragment {
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
                     credit3 = Integer.parseInt(credit3ET.getText().toString());
 
-                    double total = credit1 * Math.pow(1 + (credit3 / 100), credit2/12);
+                    double total = credit1 * Math.pow(1 + (credit3 / 100), credit2 / 12);
                     double perMonth = total / credit2;
+
 
                     result.setText("Monthly: " + new DecimalFormat("##.##").format(perMonth) + " lv." + "\n" +
                             "All paid sum:" + new DecimalFormat("##.##").format(total) + " lv." + "\n" + "Monthly percent: " + new DecimalFormat("##.##").format(credit3) + "%");
-
+                    builder.setMessage(result.getText());
+                    builder.show();
                 } else if (checkRadioBtn2) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
                     credit2 = Integer.parseInt(credit2ET.getText().toString());
@@ -162,11 +176,16 @@ public class CalculatorFragment extends Fragment {
                     double q = 1 + credit3 / 100;
                     double total = (credit1 * (Math.pow(q, credit2) - 1)) / (Math.pow(q, credit2) * (q - 1));
                     double toPay = credit1 * credit2;
-                    if (!Double.isNaN(total))
+                    if (!Double.isNaN(total)) {
                         result.setText("Maximum amount of credit: " + new DecimalFormat("##.##").format(total) + "lv." + "\n" +
                                 "All paid sum:" + (int) toPay + "lv." + "\n" + "Monthly percent: " + credit3 + "%");
-                    else
-                        result.setText("Maximum amount of credit is too high to display");
+                        builder.setMessage(result.getText());
+                        builder.show();
+                    } else {
+                        result.setText(R.string.MaxAmmErr);
+                        builder.setMessage(result.getText());
+                        builder.show();
+                    }
 
                 } else if (checkRadioBtn3) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
@@ -178,10 +197,15 @@ public class CalculatorFragment extends Fragment {
                     double k = Math.log(1 - a) / Math.log(2);
                     double logQ = (Math.log(q) / Math.log(2));
                     double total = -(k / logQ);
-                    if (!Double.isNaN(total))
+                    if (!Double.isNaN(total)) {
                         result.setText("Credit will expire in: " + (int) Math.ceil(total) + " months");
-                    else
-                        result.setText("Enter higher monthly installment");
+                        builder.setMessage(result.getText());
+                        builder.show();
+                    } else {
+                        result.setText(R.string.HigherMsg);
+                        builder.setMessage(result.getText());
+                        builder.show();
+                    }
 
                 } else if (checkRadioBtn4) {
                     credit1 = Integer.parseInt(credit1ET.getText().toString());
@@ -192,12 +216,16 @@ public class CalculatorFragment extends Fragment {
                     boolean data = true;
                     if (toPay < credit1)
                         data = false;
-                    double interest = 100 * (Math.pow(toPay / credit1, 1 / (credit2/12)) - 1);
+                    double interest = 100 * (Math.pow(toPay / credit1, 1 / (credit2 / 12)) - 1);
                     if (data) {
                         result.setText("Year percent: " + new DecimalFormat("##.##").format(interest) + "%" + "\n" +
                                 "All paid sum:" + credit2 * credit3 + " lv.");
+                        builder.setMessage(result.getText());
+                        builder.show();
                     } else {
-                        result.setText("Paid sum is less than withdrawn sum.");
+                        result.setText(R.string.LessThan);
+                        builder.setMessage(result.getText());
+                        builder.show();
                     }
 
 
@@ -210,6 +238,7 @@ public class CalculatorFragment extends Fragment {
 
         return row;
     }
+
 
     public static boolean isInteger(String s) {
         return isInteger(s, 10);
